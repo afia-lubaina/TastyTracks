@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100&family=Outfit:wght@100..900&family=Ubuntu+Mono&display=swap');
+.Navbar{
+    padding: 20px 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: Outfit;
+}
+
+.Navbar.logo{
+    font-size: 150px;
+}
+
+.navbar-menu{
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    color:rgb(83, 83, 83);
+    font-size: 18px;
+}
+
+.navbar-right{
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.Navbar button{
+    background: transparent;
+    font-size: 16px;
+    color:rgb(83, 83, 83);
+    border: 1px solid tomato;
+    padding: 10px 30px;
+    border-radius: 50px;
+    transform: 0.3s;
+}
+
+.Navbar button:hover{
+    background: #fff4ff;
+
+}
+
+.Navbar .active{
+    padding-bottom: 2px;
+    border-bottom: 2px solid #49557e;
+}
