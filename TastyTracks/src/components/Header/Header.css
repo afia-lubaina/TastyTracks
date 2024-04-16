@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100&family=Outfit:wght@100..900&family=Ubuntu+Mono&display=swap');
+
 .header{
     height: 34vw;
     margin:30px auto;
-    background: url('/header_img.png')no-repeat;
+    background: url('/Food_wall.png')no-repeat;
     background-size: contain ;
     position: relative;
 }
@@ -18,25 +20,32 @@
 }
 
 .header-contents h2 {
-    font-size: max(4.5vw,22px);
+    font-size:4rem;
     color: white;
     font-weight: 500;
+    font-family: Outfit;
 }
 
 .header-contents p {
     font-size: 1vw;
     color: white;
     animation: fadeIn 1s;
+    font-family: Outfit;
+
 }
 .header-contents button {
     border: none;
     color: #747474;
     font-weight: 500;
-    padding: 1vw 2.3vw;
+    padding: 1rem 2rem;
     background-color: white;
     border-radius: 50px;
-    font-size:(1vw,13px);
+    font-size:2rem;
+    font-family:Outfit ; 
+}
 
+.header-contents button:hover{
+    background: #e9d3d3;
 }
 
 @keyframes fadeIn {

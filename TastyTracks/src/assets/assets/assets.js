@@ -59,9 +59,34 @@ import profile_icon from './profile_icon.png'
 import bag_icon from './bag_icon.png'
 import logout_icon from './logout_icon.png'
 import parcel_icon from './parcel_icon.png'
+import Tasty_logo from './Tasty_logo.png'
+import Tasty_logo2 from './Tasty_logo2.png'
+import Tasty_logo3 from './Tasty_logo3.png'
+import Food_wall from './Food_wall.png'
+import Bailey_Road from './Bailey_Road.png'
+import Banani from './Banani.png'
+import dmd from './dmd.png'
+import Khilgaon from './Khilgaon.png'
+import Mirpur from './Mirpur.png'
+import mohammadpur from './mohammadpur.png'
+import Gulshan from './Gulshan.png'
+import Uttara from './Uttara.png'
+
 
 export const assets = {
+    Uttara,
+    Bailey_Road,
+    Banani,
+    dmd,
+    Khilgaon,
+    Mirpur,
+    mohammadpur,
+    Gulshan,
+    Food_wall,
     logo,
+    Tasty_logo,
+    Tasty_logo2,
+    Tasty_logo3,
     basket_icon,
     header_img,
     search_icon,
@@ -79,153 +104,157 @@ export const assets = {
     profile_icon,
     logout_icon,
     bag_icon,
-    parcel_icon
+    parcel_icon,
+    food_16
 }
 
-export const menu_list = [
+export const location_list = [
     {
-        menu_name: "Salad",
-        menu_image: menu_1
+        location_name: "Dhanmondi",
+        location_image: dmd
     },
     {
-        menu_name: "Rolls",
-        menu_image: menu_2
+        location_name: "Banani",
+        location_image: Banani
     },
     {
-        menu_name: "Deserts",
-        menu_image: menu_3
+        location_name: "Khilgaon",
+        location_image: Khilgaon
     },
     {
-        menu_name: "Sandwich",
-        menu_image: menu_4
+        location_name: "Bailey Road",
+        location_image: Bailey_Road
     },
     {
-        menu_name: "Cake",
-        menu_image: menu_5
+        location_name: "Gulshan",
+        location_image: Gulshan
     },
     {
-        menu_name: "Pure Veg",
-        menu_image: menu_6
+        location_name: "Mirpur",
+        location_image: Mirpur
     },
     {
-        menu_name: "Pasta",
-        menu_image: menu_7
+        location_name: "Uttara",
+        location_image: Uttara
     },
     {
-        menu_name: "Noodles",
-        menu_image: menu_8
+        location_name: "Mohammadpur",
+        location_image: mohammadpur
     }]
 
-export const food_list = [
+export const restaurant_list = [
     {
         _id: "1",
-        name: "Greek salad",
+        name: "Courtyard",
         image: food_1,
         price: 12,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Salad"
+        description: "Quite ambient place to have a different foreign meal.",
+        category: "Dhanmondi"
     },
     {
         _id: "2",
-        name: "Veg salad",
+        name: "Izakaya",
         image: food_2,
         price: 18,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Salad"
+        description: "Various authentic Japanese dishes are available, decorated with Sakura flowers.",
+        category: "Dhanmondi"
     }, {
         _id: "3",
-        name: "Clover Salad",
+        name: "The Bistro",
         image: food_3,
         price: 16,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Salad"
+        description: "A place where you can have a good time with your friends and family.",
+        category: "Dhanmondi"
     }, {
         _id: "4",
-        name: "Chicken Salad",
+        name: "Crimson Cup",
         image: food_4,
         price: 24,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Salad"
+        description: "Coffee shop with a variety of coffee and snacks.",
+        category: "Dhanmondi"
     }, {
         _id: "5",
-        name: "Lasagna Rolls",
+        name: "Jatra Biroti",
         image: food_5,
         price: 14,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Rolls"
+        description: "Desi food with a modern touch, a place to have a good time with friends and family.",
+        category: "Banani"
     }, {
         _id: "6",
-        name: "Peri Peri Rolls",
+        name: "Terracotta Tales",
         image: food_6,
         price: 12,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Rolls"
+        description: "A place where you can have a good time with your friends and family.",
+        category: "Banani"
     }, {
         _id: "7",
-        name: "Chicken Rolls",
+        name: "NorthEnd",
         image: food_7,
         price: 20,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Rolls"
+        description: "Coffee shop with a variety of coffee and snacks.",
+        category: "Banani"
     }, {
         _id: "8",
-        name: "Veg Rolls",
+        name: "ChileKotha",
         image: food_8,
         price: 15,
-        description: "Food provides essential nutrients for overall health and well-being",
+        description: "The restaurant aims to recreate the cozy and nostalgic atmosphere of this space.",
         category: "Rolls"
     }, {
         _id: "9",
-        name: "Ripple Ice Cream",
+        name: "Nori",
         image: food_9,
         price: 14,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Deserts"
+        description: "This place is a must-visit for all sushi lovers.",
+        category: "Gulshan"
     }, {
         _id: "10",
-        name: "Fruit Ice Cream",
+        name: "Pinewood Cafe",
         image: food_10,
         price: 22,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Deserts"
+        description: "Great sea food, chick and aesthetic interior.",
+        category: "Gulshan"
     }, {
         _id: "11",
-        name: "Jar Ice Cream",
+        name: "Khanas",
         image: food_11,
         price: 10,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Deserts"
+        description: "The restaurant aims to recreate the cozy and nostalgic atmosphere of this space.",
+        category: "Bailey Road"
     }, {
         _id: "12",
-        name: "Vanilla Ice Cream",
+        name: "Burger Xpress",
         image: food_12,
         price: 12,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Deserts"
+        category: "Bailey Road"
     },
     {
         _id: "13",
-        name: "Chicken Sandwich",
+        name: "Chaap Ghor",
         image: food_13,
         price: 12,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Sandwich"
+        category: "Mirpur"
     },
     {
         _id: "14",
-        name: "Vegan Sandwich",
+        name: "Galleria Restaurant and Cafe",
         image: food_14,
         price: 18,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Sandwich"
+        category: "Mirpur"
     }, {
         _id: "15",
-        name: "Grilled Sandwich",
+        name: "Madchef",
         image: food_15,
         price: 16,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Sandwich"
-    }, {
+        category: "Mirpur"
+    }
+ ] 
+ export const food_list = [
+ {
         _id: "16",
         name: "Bread Sandwich",
         image: food_16,
@@ -234,7 +263,7 @@ export const food_list = [
         category: "Sandwich"
     }, {
         _id: "17",
-        name: "Cup Cake",
+        name: "Sushi Yaki",
         image: food_17,
         price: 14,
         description: "Food provides essential nutrients for overall health and well-being",

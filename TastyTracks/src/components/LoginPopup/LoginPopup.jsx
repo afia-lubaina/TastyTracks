@@ -12,7 +12,7 @@ const LoginPopup = ({setShowLogin}) => {
     <div className='login-popup'>
         <form className='login-popup-container' >
             <div className='login-popup-title'>
-                <h2>{currState}</h2>
+              <h2 style={{ color: 'rgb(225, 74, 99)' }}>{currState}</h2>
                 <img onClick={()=>setShowLogin(false)} src={assets.cross_icon} alt="" />
             </div>
             <div className='login-popup-inputs'>
@@ -31,7 +31,6 @@ const LoginPopup = ({setShowLogin}) => {
             
 
         </form>
-      login
     </div>
   )
 }

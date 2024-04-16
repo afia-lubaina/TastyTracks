@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100&family=Outfit:wght@100..900&family=Ubuntu+Mono&display=swap');
+
+.explore-location{
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.explore-location h1{
+    color: #262626;
+    font-family: Outfit;
+    font-weight: 500;
+    font-size: 2vw;
+}
+.explore-location-text {
+    font-family: Outfit;
+    max-width: 60%;
+    columns: #808080;
+    font-size: 1.3vw;
+}
+
+.explore-location-list{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    text-align: center;
+    text-align: center;
+    margin: 20px 0px;
+    overflow: scroll;
+}
+
+.explore-location-list::-webkit-scrollbar{
+    display: none;
+}
+
+.explore-location-item img{
+    margin-top: 20px;
+    width: 10rem;
+    min-width: 80px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: 0.2s;
+}
+
+.explore-location-item p{
+    margin-top: 10px ;
+    color: #747474;
+    font-size:2rem;
+    cursor: pointer;
+    font-family: Outfit;
+}
+
+.explore-location hr{
+    margin: 10px 0px;
+    height: 2px;
+    background-color: #e2e2e2;
+    border: none;
+}
+
+.explore-location-item .active {
+    border: 4px solid rgb(225, 74, 99);
+    border-radius: 50%; 
+    padding: 2px;
+  }
+  

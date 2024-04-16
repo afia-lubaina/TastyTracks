@@ -1,38 +1,59 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100&family=Outfit:wght@100..900&family=Ubuntu+Mono&display=swap');
 .Navbar{
+    top: 0;
+    position: sticky;
+    z-index: 2000;
+    width: 100%;
+    background-color: white;
+    height: 10rem;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-content{
     padding: 20px 0px;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-family: Outfit;
+    
 }
 
-.Navbar.logo{
-    font-size: 150px;
+.logo{
+    min-width: 7rem;
+    min-height: 7rem;
+}
+
+.Navbar img{
+    min-width: 2.5rem;
 }
 
 .navbar-menu{
     display: flex;
     list-style: none;
-    gap: 20px;
+    gap: 29px;
     color:rgb(83, 83, 83);
     font-size: 18px;
+    font-size: 2rem;
 }
 
 .navbar-right{
     display: flex;
     align-items: center;
     gap: 40px;
+    z-index: 2000;
 }
 
 .Navbar button{
     background: transparent;
-    font-size: 16px;
+    font-size: 1rem;
     color:rgb(83, 83, 83);
-    border: 1px solid tomato;
-    padding: 10px 30px;
+    border: 1px solid rgb(225, 74, 99);
+    padding: 20px 40px;
     border-radius: 50px;
     transform: 0.3s;
+    font-size: 1.5rem;
 }
 
 .Navbar button:hover{
@@ -42,7 +63,7 @@
 
 .Navbar .active{
     padding-bottom: 2px;
-    border-bottom: 2px solid #49557e;
+    border-bottom: 2px solid rgb(225, 74, 99);
 }
 
 .Navbar li{
@@ -51,14 +72,16 @@
 
 .navbar-search-icon{
     position: relative;
+
 }
 
 .navbar-search-icon .dot{
     position: absolute;
     min-width: 10px;
     min-height: 10px;
-    background-color: tomato;
+    background-color: rgb(225, 74, 99);
     border-radius: 5px;
     top: -8px;
     right: -8px;
+    z-index: 2001;
 }
