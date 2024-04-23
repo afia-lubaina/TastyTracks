@@ -3,15 +3,16 @@ import './Home.css'
 import Header from '../../components/Header/Header'
 import ExploreLocation from '../../components/ExploreLocation/ExploreLocation'
 import FoodDisplay from '../../components/FoodDisplay/FoodDisplay'
+import Footer from '../../components/Footer/Footer'
 
 const Home = () => {
 
   const [category,setCategory]=useState("All");
   return (
-    <div>
+    <div className='home-container'>
       <Header />
       <ExploreLocation category={category} setCategory={setCategory} />
-      <FoodDisplay category={category} />
+      <FoodDisplay/>
     </div>
   )
 }

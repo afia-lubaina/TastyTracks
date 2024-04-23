@@ -1,0 +1,120 @@
+.cart{
+    margin-top: 100px;
+    margin-bottom: 100px;
+    font-size: 2rem;
+    font-family: Outfit;
+
+}
+
+.cart-items-title{
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 1fr 1fr 1fr 0.5fr;
+    align-items: center;
+    color: grey;
+    font-size: 2rem ;
+    font-family: Outfit;
+}
+
+.cart-items-item{
+    margin: 10px 0px;
+    color: black;
+}
+
+.cart-items-item img{
+    min-width: 50px;
+}
+
+.cart hr{
+    height: 1px;
+    background-color: #e2e2e2;
+    border: none;
+}
+
+.cart-items-item .cross{
+    cursor: m;
+}
+
+.cart-bottom{
+    margin-top: 80px;
+    display: flex;
+    justify-content: space-between;
+    gap: max(12vw, 20px);
+}
+
+.cart-total{
+    flex:1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.cart-total-details{
+    display: flex;
+    justify-content: space-between;
+    color: #555555;
+}
+
+.cart-total hr{
+    margin: 10px 0px;
+}
+.cart-total button{
+    border: none;
+    background-color:white;
+    background-color: rgb(225, 74, 99);
+    min-width: 200px;
+    padding: 12px 0px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 2rem;
+    font-family: Outfit;
+}
+
+.cart-promocode{
+    flex:1;
+}
+.cart-promocode p{
+    color: #555555;
+}
+.cart-promocode-input{
+    display: flex;
+    margin-top: 10px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #eaeaea;
+    border-radius: 4px;
+    min-width: 200px;
+    min-height: 20px;
+}
+
+.cart-promocode-input input{
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 10px;
+    min-width: 400px;
+    min-height: 50px;
+    font-size: 1.6rem;
+}
+
+.cart-promocode-input button{
+    background-color: rgb(225, 74, 99);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    min-width: 150px;
+    min-height: 50px;
+    font-size: 1.7rem;
+}
+
+@media (max-width: 750px){
+    .cart-bottom{
+        flex-direction: column-reverse;
+        
+    }
+    .cart-promocode{
+        justify-content: start;
+    }
+    
+
+}

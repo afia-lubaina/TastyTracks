@@ -144,7 +144,7 @@ export const location_list = [
 
 export const restaurant_list = [
     {
-        _id: "1",
+        id: "1",
         name: "Courtyard",
         image: food_1,
         price: 12,
@@ -152,77 +152,77 @@ export const restaurant_list = [
         category: "Dhanmondi"
     },
     {
-        _id: "2",
+        id: "2",
         name: "Izakaya",
         image: food_2,
         price: 18,
         description: "Various authentic Japanese dishes are available, decorated with Sakura flowers.",
         category: "Dhanmondi"
     }, {
-        _id: "3",
+        id: "3",
         name: "The Bistro",
         image: food_3,
         price: 16,
         description: "A place where you can have a good time with your friends and family.",
         category: "Dhanmondi"
     }, {
-        _id: "4",
+        id: "4",
         name: "Crimson Cup",
         image: food_4,
         price: 24,
         description: "Coffee shop with a variety of coffee and snacks.",
         category: "Dhanmondi"
     }, {
-        _id: "5",
+        id: "5",
         name: "Jatra Biroti",
         image: food_5,
         price: 14,
         description: "Desi food with a modern touch, a place to have a good time with friends and family.",
         category: "Banani"
     }, {
-        _id: "6",
+        id: "6",
         name: "Terracotta Tales",
         image: food_6,
         price: 12,
         description: "A place where you can have a good time with your friends and family.",
         category: "Banani"
     }, {
-        _id: "7",
+        id: "7",
         name: "NorthEnd",
         image: food_7,
         price: 20,
         description: "Coffee shop with a variety of coffee and snacks.",
         category: "Banani"
     }, {
-        _id: "8",
+        id: "8",
         name: "ChileKotha",
         image: food_8,
         price: 15,
         description: "The restaurant aims to recreate the cozy and nostalgic atmosphere of this space.",
         category: "Rolls"
     }, {
-        _id: "9",
+        id: "9",
         name: "Nori",
         image: food_9,
         price: 14,
         description: "This place is a must-visit for all sushi lovers.",
         category: "Gulshan"
     }, {
-        _id: "10",
+        id: "10",
         name: "Pinewood Cafe",
         image: food_10,
         price: 22,
         description: "Great sea food, chick and aesthetic interior.",
         category: "Gulshan"
     }, {
-        _id: "11",
+        id: "11",
         name: "Khanas",
         image: food_11,
         price: 10,
         description: "The restaurant aims to recreate the cozy and nostalgic atmosphere of this space.",
         category: "Bailey Road"
     }, {
-        _id: "12",
+        id: "12",
         name: "Burger Xpress",
         image: food_12,
         price: 12,
@@ -230,7 +230,7 @@ export const restaurant_list = [
         category: "Bailey Road"
     },
     {
-        _id: "13",
+        id: "13",
         name: "Chaap Ghor",
         image: food_13,
         price: 12,
@@ -238,80 +238,169 @@ export const restaurant_list = [
         category: "Mirpur"
     },
     {
-        _id: "14",
+        id: "14",
         name: "Galleria Restaurant and Cafe",
         image: food_14,
         price: 18,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Mirpur"
     }, {
-        _id: "15",
+        id: "15",
+        name: "Madchef",
+        image: food_15,
+        price: 16,
+        description: "Food provides essential nutrients for overall health and well-being",
+        category: "Mirpur"
+    },
+    {
+        id: "16",
+        name: "Taj Kitchen",
+        image: food_15,
+        price: 16,
+        description: "Food provides essential nutrients for overall health and well-being",
+        category: "Mohammadpur"
+    },
+    {
+        id: "17",
+        name: "Shwarma Village",
+        image: food_15,
+        price: 16,
+        description: "Food provides essential nutrients for overall health and well-being",
+        category: "Mohammadpur"
+    },
+    {
+        id: "18",
+        name: "On Fire",
+        image: food_15,
+        price: 16,
+        description: "Food provides essential nutrients for overall health and well-being",
+        category: "Mohammadpur"
+    },
+    {
+        id: "19",
+        name: "Alfresco",
+        image: food_15,
+        price: 16,
+        description: "Food provides essential nutrients for overall health and well-being",
+        category: "Khilgaon"
+    },
+    {
+        id: "15",
+        name: "Khana's",
+        image: food_15,
+        price: 16,
+        description: "Food provides essential nutrients for overall health and well-being",
+        category: "Khilgaon"
+    },
+    {
+        id: "15",
+        name: "Kudos",
+        image: food_15,
+        price: 16,
+        description: "Food provides essential nutrients for overall health and well-being",
+        category: "Khilgaon"
+    },
+    {
+        id: "15",
+        name: "Madchef",
+        image: food_15,
+        price: 16,
+        description: "Food provides essential nutrients for overall health and well-being",
+        category: "Mirpur"
+    },
+    {
+        id: "15",
+        name: "Madchef",
+        image: food_15,
+        price: 16,
+        description: "Food provides essential nutrients for overall health and well-being",
+        category: "Mirpur"
+    },
+    {
+        id: "15",
+        name: "Madchef",
+        image: food_15,
+        price: 16,
+        description: "Food provides essential nutrients for overall health and well-being",
+        category: "Mirpur"
+    },
+    {
+        id: "15",
+        name: "Madchef",
+        image: food_15,
+        price: 16,
+        description: "Food provides essential nutrients for overall health and well-being",
+        category: "Mirpur"
+    },
+    {
+        id: "15",
         name: "Madchef",
         image: food_15,
         price: 16,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Mirpur"
     }
+
  ] 
  export const food_list = [
  {
-        _id: "16",
+        id: "16",
         name: "Bread Sandwich",
         image: food_16,
         price: 24,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Sandwich"
     }, {
-        _id: "17",
-        name: "Sushi Yaki",
+        id: "17",
+        name: "Strawberry Cake",
         image: food_17,
         price: 14,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Cake"
     }, {
-        _id: "18",
+        id: "18",
         name: "Vegan Cake",
         image: food_18,
         price: 12,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Cake"
     }, {
-        _id: "19",
+        id: "19",
         name: "Butterscotch Cake",
         image: food_19,
         price: 20,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Cake"
     }, {
-        _id: "20",
+        id: "20",
         name: "Sliced Cake",
         image: food_20,
         price: 15,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Cake"
     }, {
-        _id: "21",
+        id: "21",
         name: "Garlic Mushroom ",
         image: food_21,
         price: 14,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Pure Veg"
     }, {
-        _id: "22",
+        id: "22",
         name: "Fried Cauliflower",
         image: food_22,
         price: 22,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Pure Veg"
     }, {
-        _id: "23",
+        id: "23",
         name: "Mix Veg Pulao",
         image: food_23,
         price: 10,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Pure Veg"
     }, {
-        _id: "24",
+        id: "24",
         name: "Rice Zucchini",
         image: food_24,
         price: 12,
@@ -319,7 +408,7 @@ export const restaurant_list = [
         category: "Pure Veg"
     },
     {
-        _id: "25",
+        id: "25",
         name: "Cheese Pasta",
         image: food_25,
         price: 12,
@@ -327,49 +416,49 @@ export const restaurant_list = [
         category: "Pasta"
     },
     {
-        _id: "26",
+        id: "26",
         name: "Tomato Pasta",
         image: food_26,
         price: 18,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Pasta"
     }, {
-        _id: "27",
+        id: "27",
         name: "Creamy Pasta",
         image: food_27,
         price: 16,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Pasta"
     }, {
-        _id: "28",
+        id: "28",
         name: "Chicken Pasta",
         image: food_28,
         price: 24,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Pasta"
     }, {
-        _id: "29",
+        id: "29",
         name: "Buttter Noodles",
         image: food_29,
         price: 14,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Noodles"
     }, {
-        _id: "30",
+        id: "30",
         name: "Veg Noodles",
         image: food_30,
         price: 12,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Noodles"
     }, {
-        _id: "31",
+        id: "31",
         name: "Somen Noodles",
         image: food_31,
         price: 20,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Noodles"
     }, {
-        _id: "32",
+        id: "32",
         name: "Cooked Noodles",
         image: food_32,
         price: 15,

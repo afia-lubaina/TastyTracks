@@ -16,4 +16,5 @@ a{
 .App{
   width: 80%;
   margin: auto;
+  min-height: 100vh;
 }

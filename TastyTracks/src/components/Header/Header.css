@@ -56,3 +56,24 @@
         opacity: 1;
     }
 }
+
+@media (max-width:1050px){
+    .header{
+        height: 16rem
+    }
+    .header-contents{
+        max-width: 30%;
+    }
+}
+
+@media (max-width: 760px){
+    .header-contents{
+        max-width: 15%;
+    }
+    .header-contents p{
+        display: none;
+    }
+    .header-contents button{
+        padding: 1rem;
+    }
+}
