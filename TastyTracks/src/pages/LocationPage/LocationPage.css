@@ -1,0 +1,21 @@
+.location{
+    margin-top: 30px;
+}
+
+.location h2{
+    text-align: center;
+    position: center;
+    color: rgb(197, 79, 99);
+    margin-top: 50px;
+    font-size: 4.7rem;
+    font-weight: 500;
+    font-family: Outfit;
+}
+
+.restaurant-list{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
+    margin-top:60px ;
+    gap: 50px;
+    row-gap: 50px;
+}

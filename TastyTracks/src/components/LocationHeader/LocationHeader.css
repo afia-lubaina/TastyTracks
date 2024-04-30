@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100&family=Outfit:wght@100..900&family=Ubuntu+Mono&display=swap');
+
+.location-header{
+    height: 34vw;
+    margin:30px auto;
+    background-size: contain ;
+    position: relative;
+    animation: fadeIn 1s;
+}
+
+.location-header-contents{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 1.5vw;
+    max-width: 50%;
+    bottom: 10%;
+    left: 6vw;
+}
+
+.location-header-contents h2 {
+    font-size:4rem;
+    color: white;
+    font-weight: 500;
+    font-family: Outfit;
+}
+
+.location-header-contents p {
+    font-size: 80px;
+    color: white;
+    animation: fadeIn 1s;
+    font-family: Outfit;
+}
+
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@media (max-width:1050px){
+    .location-header{
+        height: 16rem
+    }
+    .location-header-contents{
+        max-width: 30%;
+    }
+}
+
+@media (max-width: 760px){
+    .location-header-contents{
+        max-width: 15%;
+    }
+    .location-header-contents p{
+        display: none;
+    }
+    
+}

@@ -71,7 +71,35 @@ import Mirpur from './Mirpur.png'
 import mohammadpur from './mohammadpur.png'
 import Gulshan from './Gulshan.png'
 import Uttara from './Uttara.png'
-
+import plate from './plate.png'
+import dine_1 from './dine_1.jpg'
+import dine_2 from './dine_2.jpg'
+import dine_3 from './dine_3.jpg'
+import dine_4 from './dine_4.jpg'
+import dine_5 from './dine_5.jpg'
+import dine_6 from './dine_6.jpg'
+import dine_7 from './dine_7.jpg'
+import dine_8 from './dine_8.jpg'
+import dine_9 from './dine_9.jpg'
+import dine_10 from './dine_10.jpg'
+import dine_11 from './dine_11.jpg'
+import dine_12 from './dine_12.jpg'
+import dine_13 from './dine_13.jpg'
+import dine_14 from './dine_14.jpg'
+import dine_15 from './dine_15.jpg'
+import dine_16 from './dine_16.jpg'
+import dine_17 from './dine_17.jpg'
+import dine_18 from './dine_18.jpg'
+import dine_19 from './dine_19.jpg'
+import dine_20 from './dine_20.jpg'
+import dine_21 from './dine_21.jpg'
+import dine_22 from './dine_22.jpg'
+import dine_23 from './dine_23.jpg'
+import dine_24 from './dine_24.jpg'
+import dine_25 from './dine_25.jpg'
+import dine_26 from './dine_26.jpg'
+import dine_27 from './dine_27.jpg'
+import font_back from './font_back.jpg'
 
 export const assets = {
     Uttara,
@@ -105,49 +133,101 @@ export const assets = {
     logout_icon,
     bag_icon,
     parcel_icon,
-    food_16
+    food_16,
+    plate,
+    dine_1,
+    dine_2,
+    dine_3,
+    dine_4,
+    dine_5,
+    dine_6,
+    dine_7,
+    dine_8,
+    dine_9,
+    dine_10,
+    dine_11,
+    dine_12,
+    dine_13,
+    dine_14,
+    dine_15,
+    dine_16,
+    dine_17,
+    dine_18,
+    dine_19,
+    dine_20,
+    dine_21,
+    dine_22,
+    dine_23,
+    dine_24,
+    dine_25,
+    dine_26,
+    dine_27,
+    font_back
+
+
 }
+
 
 export const location_list = [
     {
-        location_name: "Dhanmondi",
-        location_image: dmd
+      location_name: "Dhanmondi",
+      location_image: dmd,
+      locationHeader_images: [dine_1,dine_2,dine_3,dine_25,dine_26,dine_27],
+      description: "Explore the magical tastes of Dhanmondi, where culinary delights await at every corner."
     },
     {
-        location_name: "Banani",
-        location_image: Banani
+      location_name: "Banani",
+      location_image: Banani,
+      locationHeader_images: [dine_4,dine_6,dine_7],
+      description: "Discover the vibrant food scene in Banani, where flavors from around the world come together."
     },
     {
-        location_name: "Khilgaon",
-        location_image: Khilgaon
+      location_name: "Khilgaon",
+      location_image: Khilgaon,
+      locationHeader_images: [dine_7,dine_8,dine_9],
+      description: "Experience the culinary wonders of Khilgaon, a hidden gem for food enthusiasts."
     },
     {
-        location_name: "Bailey Road",
-        location_image: Bailey_Road
+      location_name: "Bailey Road",
+      location_image: Bailey_Road,
+      locationHeader_images: [dine_10,dine_11,dine_12],
+      description: "Indulge in the delicious offerings of Bailey Road, where every meal is a feast for the senses."
     },
     {
-        location_name: "Gulshan",
-        location_image: Gulshan
+      location_name: "Gulshan",
+      location_image: Gulshan,
+      locationHeader_images: [dine_13,dine_14,dine_15],
+      description: "Embark on a gastronomic journey through Gulshan, where elegance meets flavor."
     },
     {
-        location_name: "Mirpur",
-        location_image: Mirpur
+      location_name: "Mirpur",
+      location_image: Mirpur,
+      locationHeader_images: [dine_16,dine_17,dine_18],
+      description: "Savor the authentic flavors of Mirpur, a melting pot of culinary traditions."
     },
     {
-        location_name: "Uttara",
-        location_image: Uttara
+      location_name: "Uttara",
+      location_image: Uttara,
+      locationHeader_images: [dine_19,dine_20,dine_21],
+      description: "Delight in the diverse cuisine of Uttara, where culinary diversity knows no bounds."
     },
     {
-        location_name: "Mohammadpur",
-        location_image: mohammadpur
-    }]
+      location_name: "Mohammadpur",
+      location_image: mohammadpur,
+      locationHeader_images: [dine_22,dine_23,dine_24],
+      description: "Experience the vibrant food culture of Mohammadpur, where every dish tells a story."
+    }
+  ];
+
+  
 
 export const restaurant_list = [
     {
         id: "1",
-        name: "Courtyard",
+        name: "The Courtyard at Park Heights",
         image: food_1,
-        price: 12,
+        rating: 12,
+        restaurant_images: [dine_1,dine_2,dine_3],
         description: "Quite ambient place to have a different foreign meal.",
         category: "Dhanmondi"
     },
@@ -155,77 +235,77 @@ export const restaurant_list = [
         id: "2",
         name: "Izakaya",
         image: food_2,
-        price: 18,
+        rating: 18,
         description: "Various authentic Japanese dishes are available, decorated with Sakura flowers.",
         category: "Dhanmondi"
     }, {
         id: "3",
         name: "The Bistro",
         image: food_3,
-        price: 16,
+        rating: 16,
         description: "A place where you can have a good time with your friends and family.",
         category: "Dhanmondi"
     }, {
         id: "4",
         name: "Crimson Cup",
         image: food_4,
-        price: 24,
+        rating: 24,
         description: "Coffee shop with a variety of coffee and snacks.",
         category: "Dhanmondi"
     }, {
         id: "5",
         name: "Jatra Biroti",
         image: food_5,
-        price: 14,
+        rating: 14,
         description: "Desi food with a modern touch, a place to have a good time with friends and family.",
         category: "Banani"
     }, {
         id: "6",
         name: "Terracotta Tales",
         image: food_6,
-        price: 12,
+        rating: 12,
         description: "A place where you can have a good time with your friends and family.",
         category: "Banani"
     }, {
         id: "7",
         name: "NorthEnd",
         image: food_7,
-        price: 20,
+        rating: 20,
         description: "Coffee shop with a variety of coffee and snacks.",
         category: "Banani"
     }, {
         id: "8",
         name: "ChileKotha",
         image: food_8,
-        price: 15,
+        rating: 15,
         description: "The restaurant aims to recreate the cozy and nostalgic atmosphere of this space.",
         category: "Rolls"
     }, {
         id: "9",
         name: "Nori",
         image: food_9,
-        price: 14,
+        rating: 14,
         description: "This place is a must-visit for all sushi lovers.",
         category: "Gulshan"
     }, {
         id: "10",
         name: "Pinewood Cafe",
         image: food_10,
-        price: 22,
+        rating: 22,
         description: "Great sea food, chick and aesthetic interior.",
         category: "Gulshan"
     }, {
         id: "11",
         name: "Khanas",
         image: food_11,
-        price: 10,
+        rating: 10,
         description: "The restaurant aims to recreate the cozy and nostalgic atmosphere of this space.",
         category: "Bailey Road"
     }, {
         id: "12",
         name: "Burger Xpress",
         image: food_12,
-        price: 12,
+        rating: 12,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Bailey Road"
     },
@@ -233,7 +313,7 @@ export const restaurant_list = [
         id: "13",
         name: "Chaap Ghor",
         image: food_13,
-        price: 12,
+        rating: 12,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Mirpur"
     },
@@ -241,14 +321,14 @@ export const restaurant_list = [
         id: "14",
         name: "Galleria Restaurant and Cafe",
         image: food_14,
-        price: 18,
+        rating: 18,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Mirpur"
     }, {
         id: "15",
         name: "Madchef",
         image: food_15,
-        price: 16,
+        rating: 16,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Mirpur"
     },
@@ -256,7 +336,7 @@ export const restaurant_list = [
         id: "16",
         name: "Taj Kitchen",
         image: food_15,
-        price: 16,
+        rating: 16,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Mohammadpur"
     },
@@ -264,7 +344,7 @@ export const restaurant_list = [
         id: "17",
         name: "Shwarma Village",
         image: food_15,
-        price: 16,
+        rating: 16,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Mohammadpur"
     },
@@ -272,7 +352,7 @@ export const restaurant_list = [
         id: "18",
         name: "On Fire",
         image: food_15,
-        price: 16,
+        rating: 16,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Mohammadpur"
     },
@@ -280,7 +360,7 @@ export const restaurant_list = [
         id: "19",
         name: "Alfresco",
         image: food_15,
-        price: 16,
+        rating: 16,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Khilgaon"
     },
@@ -288,7 +368,7 @@ export const restaurant_list = [
         id: "15",
         name: "Khana's",
         image: food_15,
-        price: 16,
+        rating: 16,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Khilgaon"
     },
@@ -296,7 +376,7 @@ export const restaurant_list = [
         id: "15",
         name: "Kudos",
         image: food_15,
-        price: 16,
+        rating: 16,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Khilgaon"
     },
@@ -304,7 +384,7 @@ export const restaurant_list = [
         id: "15",
         name: "Madchef",
         image: food_15,
-        price: 16,
+        rating: 16,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Mirpur"
     },
@@ -312,7 +392,7 @@ export const restaurant_list = [
         id: "15",
         name: "Madchef",
         image: food_15,
-        price: 16,
+        rating: 16,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Mirpur"
     },
@@ -320,7 +400,7 @@ export const restaurant_list = [
         id: "15",
         name: "Madchef",
         image: food_15,
-        price: 16,
+        rating: 16,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Mirpur"
     },
@@ -328,7 +408,7 @@ export const restaurant_list = [
         id: "15",
         name: "Madchef",
         image: food_15,
-        price: 16,
+        rating: 16,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Mirpur"
     },
@@ -336,7 +416,7 @@ export const restaurant_list = [
         id: "15",
         name: "Madchef",
         image: food_15,
-        price: 16,
+        rating: 16,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Mirpur"
     }
