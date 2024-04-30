@@ -45,4 +45,21 @@
 }
 
 
+.restaurant-item-container {
+  display: grid;
+  align-items: center; /* Vertically center the content */
+}
+
+.restaurant-image {
+  width: 200px; /* Set the desired width */
+  height: 200px; /* Set the desired height */
+  object-fit: cover; /* Ensure the image covers the specified dimensions */
+  margin-right: 20px; /* Adjust as needed */
+}
+
+.restaurant-info {
+  flex: 1; /* Allow the description to take up remaining space */
+}
+
+
 

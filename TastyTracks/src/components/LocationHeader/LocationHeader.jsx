@@ -1,6 +1,7 @@
 import React from 'react';
 import './LocationHeader.css';
 import ImageSlider from '../ImageSlider/ImageSlider';
+import SlickSlider from '../SlickSlider/SlickSlider';
 
 const LocationHeader = ({ slides, title, description }) => {
   return (

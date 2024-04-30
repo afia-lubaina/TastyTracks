@@ -99,7 +99,11 @@ import dine_24 from './dine_24.jpg'
 import dine_25 from './dine_25.jpg'
 import dine_26 from './dine_26.jpg'
 import dine_27 from './dine_27.jpg'
-import font_back from './font_back.jpg'
+import iz from './iz.jpg'
+import iz_2 from './iz_2.jpg'
+import iz_3 from './iz_3.jpg'
+import iz_4 from './iz_4.jpg'
+import iz_5 from './iz_5.jpg'
 
 export const assets = {
     Uttara,
@@ -162,7 +166,11 @@ export const assets = {
     dine_25,
     dine_26,
     dine_27,
-    font_back
+    iz,
+    iz_2,
+    iz_3,
+    iz_4,
+    iz_5
 
 
 }
@@ -227,84 +235,85 @@ export const restaurant_list = [
         name: "The Courtyard at Park Heights",
         image: food_1,
         rating: 12,
-        restaurant_images: [dine_1,dine_2,dine_3],
+        restaurant_images: [iz,iz_2,iz_3,iz_4,iz_5],
         description: "Quite ambient place to have a different foreign meal.",
         category: "Dhanmondi"
     },
     {
         id: "2",
         name: "Izakaya",
-        image: food_2,
+        image: iz,
+        restaurant_images: [iz,iz_2,iz_3,iz_4,iz_5],
         rating: 18,
         description: "Various authentic Japanese dishes are available, decorated with Sakura flowers.",
         category: "Dhanmondi"
     }, {
         id: "3",
         name: "The Bistro",
-        image: food_3,
+        restaurant_images: [iz,iz_2,iz_3,iz_4,iz_5],
         rating: 16,
         description: "A place where you can have a good time with your friends and family.",
         category: "Dhanmondi"
     }, {
         id: "4",
         name: "Crimson Cup",
-        image: food_4,
+        restaurant_images: [iz,iz_2,iz_3,iz_4,iz_5],
         rating: 24,
         description: "Coffee shop with a variety of coffee and snacks.",
         category: "Dhanmondi"
     }, {
         id: "5",
         name: "Jatra Biroti",
-        image: food_5,
+        restaurant_images: [iz,iz_2,iz_3,iz_4,iz_5],
         rating: 14,
         description: "Desi food with a modern touch, a place to have a good time with friends and family.",
         category: "Banani"
     }, {
         id: "6",
         name: "Terracotta Tales",
-        image: food_6,
+        restaurant_images: [iz,iz_2,iz_3,iz_4,iz_5],
         rating: 12,
         description: "A place where you can have a good time with your friends and family.",
         category: "Banani"
     }, {
         id: "7",
         name: "NorthEnd",
-        image: food_7,
+        restaurant_images: [iz,iz_2,iz_3,iz_4,iz_5],
         rating: 20,
         description: "Coffee shop with a variety of coffee and snacks.",
         category: "Banani"
     }, {
         id: "8",
         name: "ChileKotha",
-        image: food_8,
+        restaurant_images: [iz,iz_2,iz_3,iz_4,iz_5],
         rating: 15,
         description: "The restaurant aims to recreate the cozy and nostalgic atmosphere of this space.",
         category: "Rolls"
     }, {
         id: "9",
         name: "Nori",
-        image: food_9,
+        restaurant_images: [iz,iz_2,iz_3,iz_4,iz_5],
         rating: 14,
         description: "This place is a must-visit for all sushi lovers.",
         category: "Gulshan"
     }, {
         id: "10",
         name: "Pinewood Cafe",
-        image: food_10,
+        restaurant_images: [iz,iz_2,iz_3,iz_4,iz_5],
         rating: 22,
         description: "Great sea food, chick and aesthetic interior.",
         category: "Gulshan"
     }, {
         id: "11",
         name: "Khanas",
-        image: food_11,
+        restaurant_images: [iz,iz_2,iz_3,iz_4,iz_5],
         rating: 10,
         description: "The restaurant aims to recreate the cozy and nostalgic atmosphere of this space.",
         category: "Bailey Road"
     }, {
         id: "12",
         name: "Burger Xpress",
-        image: food_12,
+        restaurant_images: [iz,iz_2,iz_3,iz_4,iz_5],
         rating: 12,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Bailey Road"
@@ -312,7 +321,7 @@ export const restaurant_list = [
     {
         id: "13",
         name: "Chaap Ghor",
-        image: food_13,
+        restaurant_images: [iz,iz_2,iz_3,iz_4,iz_5],
         rating: 12,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Mirpur"
@@ -320,14 +329,14 @@ export const restaurant_list = [
     {
         id: "14",
         name: "Galleria Restaurant and Cafe",
-        image: food_14,
+        restaurant_images: [iz,iz_2,iz_3,iz_4,iz_5],
         rating: 18,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Mirpur"
     }, {
         id: "15",
         name: "Madchef",
-        image: food_15,
+        restaurant_images: [iz,iz_2,iz_3,iz_4,iz_5],
         rating: 16,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Mirpur"
@@ -335,7 +344,7 @@ export const restaurant_list = [
     {
         id: "16",
         name: "Taj Kitchen",
-        image: food_15,
+        restaurant_images: [iz,iz_2,iz_3,iz_4,iz_5],
         rating: 16,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Mohammadpur"
@@ -343,7 +352,7 @@ export const restaurant_list = [
     {
         id: "17",
         name: "Shwarma Village",
-        image: food_15,
+        restaurant_images: [iz,iz_2,iz_3,iz_4,iz_5],
         rating: 16,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Mohammadpur"
@@ -351,7 +360,7 @@ export const restaurant_list = [
     {
         id: "18",
         name: "On Fire",
-        image: food_15,
+        restaurant_images: [iz,iz_2,iz_3,iz_4,iz_5],
         rating: 16,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Mohammadpur"
@@ -359,7 +368,7 @@ export const restaurant_list = [
     {
         id: "19",
         name: "Alfresco",
-        image: food_15,
+        restaurant_images: [iz,iz_2,iz_3,iz_4,iz_5],
         rating: 16,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Khilgaon"
@@ -367,7 +376,7 @@ export const restaurant_list = [
     {
         id: "15",
         name: "Khana's",
-        image: food_15,
+        restaurant_images: [iz,iz_2,iz_3,iz_4,iz_5],
         rating: 16,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Khilgaon"
@@ -375,7 +384,7 @@ export const restaurant_list = [
     {
         id: "15",
         name: "Kudos",
-        image: food_15,
+        restaurant_images: [iz,iz_2,iz_3,iz_4,iz_5],
         rating: 16,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Khilgaon"

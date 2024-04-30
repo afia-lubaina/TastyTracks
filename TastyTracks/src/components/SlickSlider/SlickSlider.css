@@ -1,0 +1,47 @@
+.content {
+    width: 100%;
+    margin: auto;
+    margin-bottom: 30px;
+}
+
+.container {
+    margin: 0 auto;
+    width: 100%; /* Set width to 100% */
+    height: 140vh;
+    border-color: white;
+}
+
+.img-body {
+    position: relative;
+    width: 60rem;
+    height: 100%;
+}
+
+.img-body img {
+    display: block;
+    width: 100%;
+    height: 50rem;
+    object-fit: cover;
+}
+
+.img-body:before,
+.img-body:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 3px solid #fff; /* Adjust border properties as needed */
+    pointer-events: none; /* Ensure the borders don't interfere with interactions */
+}
+
+.img-body:before {
+    z-index: 1; /* Bring the outer border to the front */
+}
+
+.slick-prev:before, .slick-next:before{
+    color:red;
+}
+
+

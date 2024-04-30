@@ -1,5 +1,6 @@
 .restaurant-page {
-
+  margin:auto;
+  width: 80%;
 }
 
 .restaurant-page h2{
@@ -7,11 +8,16 @@
   font-size: 100px;
   text-align: center;
   font-weight: 600;
-  background-image: linear-gradient(to right, #553c9a 45%, #ee4b2b);
+  background-image: url('/font_back_2.jpg');
   color: transparent;
   font-family: Outfit;
   background-clip: text;
   -webkit-background-clip: text;
   margin-top: 60px;
   margin-bottom: 60px;
+  animation: fadeIn 1s;
+  }
+
+  .restaurant-description p{
+    
   }

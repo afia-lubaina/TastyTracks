@@ -1,11 +1,8 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import LocationHeader from '../../components/LocationHeader/LocationHeader';
 import { restaurant_list } from '../../assets/assets/assets';
 import './Restaurant.css';
-
-
-
+import RestaurantHeader from '../../components/RestaurantHeader/RestaurantHeader';
 
 
 const Restaurant = () => {
@@ -23,10 +20,10 @@ const Restaurant = () => {
   return (
     <div className='restaurant-page'>
       <h2>{restaurant.name}</h2>
-      <LocationHeader slides={imageUrls} description={description} />
-      
-
-
+      <RestaurantHeader slides={imageUrls}/>
+      <div className='restaurant-description'>
+        <p>{description}</p>
+      </div>
       
     </div>
   )

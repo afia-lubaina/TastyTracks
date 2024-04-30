@@ -8,7 +8,7 @@ const RestaurantItem = ({ restaurant }) => {
     <div className="restaurant-item">
       <Link to={`/restaurant/${restaurant.id}`}>
         <div className="restaurant-item-container">
-            <img src={restaurant.image} alt="" />
+            <img src={restaurant.image} alt="" className="restaurant-image" />
           <div className="restaurant-info">
               <p className='restaurant-name'>{restaurant.name}</p>
             <p className='desc'>{restaurant.description}</p>
