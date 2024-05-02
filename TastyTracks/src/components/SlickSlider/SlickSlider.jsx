@@ -9,7 +9,6 @@ const SlickSlider = ({ slides }) => {
     const settings = {
         dots: true,
         speed: 1000,
-        centerPadding: '60px',
         slidesToShow: 3,
         slidesToScroll: 3,
         infinite: true,

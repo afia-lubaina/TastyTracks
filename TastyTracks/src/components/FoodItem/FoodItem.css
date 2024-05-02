@@ -45,6 +45,7 @@
 
 .food-item-image-container{
     position: relative;
+
 }
 .food-item-image-container .add{
     width: 100px;
@@ -53,6 +54,13 @@
     right: 15px;
     cursor: pointer;
     border-radius: 50%;
+    border: 2px solid transparent; 
+    transition: border-color 0.3s; 
+}
+
+.food-item-image-container .add:hover{
+    background-color: rgba(229, 17, 148, 0.1);
+    border-color: rgba(229, 17, 148, 1); 
 }
 
 .food-item-counter{

@@ -4,9 +4,8 @@ import SlickSlider from '../SlickSlider/SlickSlider';
 
 const RestaurantHeader = ({ slides, title, description }) => {
   return (
-    <div className="location-header">
+    <div className="restaurant-header">
         <SlickSlider slides={slides} />
-    
     </div>
   );
 };

@@ -51,9 +51,9 @@
 }
 
 .restaurant-image {
-  width: 200px; /* Set the desired width */
-  height: 200px; /* Set the desired height */
-  object-fit: cover; /* Ensure the image covers the specified dimensions */
+  min-width: 200px; /* Set the desired width */
+  min-height: 200px; /* Set the desired height */
+  object-fit: fill; /* Ensure the image covers the specified dimensions */
   margin-right: 20px; /* Adjust as needed */
 }
 

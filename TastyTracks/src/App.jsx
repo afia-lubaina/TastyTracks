@@ -9,11 +9,13 @@ import { useState } from 'react'
 import Footer from './components/Footer/Footer'
 import LocationPage from './pages/LocationPage/LocationPage'
 import Restaurant from './pages/Restaurant/Restaurant'
-
+import { StoreContext } from './context/StoreContext'
+import { useContext } from 'react'
 
 
 const App = () => {
   const [showLogin, setShowLogin] = useState(false)
+  const { ratings, updateRating } = useContext(StoreContext);
 
   return (
     <>

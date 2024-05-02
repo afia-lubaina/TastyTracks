@@ -1,12 +1,13 @@
 .cart{
-    margin-top: 100px;
-    margin-bottom: 100px;
+    margin: auto;
     font-size: 2rem;
     font-family: Outfit;
+    width:80%;
 
 }
 
 .cart-items-title{
+    margin-top: 10rem;
     display: grid;
     grid-template-columns: 1fr 1.5fr 1fr 1fr 1fr 0.5fr;
     align-items: center;
@@ -31,7 +32,9 @@
 }
 
 .cart-items-item .cross{
-    cursor: m;
+    cursor: pointer;
+    min-height: 4rem;
+    min-width: 4rem;
 }
 
 .cart-bottom{

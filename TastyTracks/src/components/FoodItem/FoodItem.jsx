@@ -2,8 +2,7 @@ import React, {useContext} from "react";
 import "./FoodItem.css";
 import { assets } from "../../assets/assets/assets";
 import { StoreContext } from "../../context/StoreContext";
-
-
+import FoodRating from "../FoodRating/FoodRating";
 
 
 const FoodItem = ({ id, name, price, description, image }) => {
@@ -29,7 +28,7 @@ const FoodItem = ({ id, name, price, description, image }) => {
       <div className="food-item-info">
         <div className="food-item-rating-name">
           <p>{name}</p>
-          <img src={assets.rating_starts} alt="" />
+          <FoodRating itemId={id} />
         </div>
         <p className="food-item-desc">{description}</p>
         <p className="food-item-price">Tk. {price}</p>

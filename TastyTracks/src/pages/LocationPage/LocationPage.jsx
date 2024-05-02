@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { restaurant_list } from '../../assets/assets/assets';
 import RestaurantItem from '../../components/RestaurantItem/RestaurantItem';
@@ -12,6 +12,11 @@ import { location_list } from '../../assets/assets/assets';
 const LocationPage = () => {
   const { location_name } = useParams();
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+
+  }, []);
+
   const filteredRestaurants = restaurant_list.filter(
     restaurant => restaurant.category === location_name
   );
@@ -21,7 +26,7 @@ const LocationPage = () => {
   const description = location ? location.description : '';
 
   return (
-    <div className="location">
+    <main className="location">
       <LocationHeader slides={imageUrls} title={`Restaurants in ${location_name}`} description={description} />
       <h2>Restaurants in {location_name}</h2>
       <div className="restaurant-list">
@@ -29,7 +34,7 @@ const LocationPage = () => {
           <RestaurantItem key={restaurant.id} restaurant={restaurant}  />
         ))}
       </div>      
-    </div>
+    </main>
   );
 };
 

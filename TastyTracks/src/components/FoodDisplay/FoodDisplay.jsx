@@ -16,7 +16,7 @@ const FoodDisplay = () => {
               food_list.map((item,index)=>{ 
                 {console.log(item.category)}
                 {console.log(item.id)}
-                return <FoodItem key={index} id={item.id} name={item.name} description={item.description} price={item.price}  image={item.image} />
+                return <FoodItem key={index} id={item.id} name={item.name} description={item.description} price={item.price}  image={item.image}  />
             })}
           </div>
     </div>

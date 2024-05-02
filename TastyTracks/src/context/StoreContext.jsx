@@ -1,11 +1,11 @@
 import React, { createContext, useState, useEffect } from "react";
 import { food_list } from '../assets/assets/assets';
 
-
 export const StoreContext = createContext(null);
 
 const StoreContextProvider = (props) => {
     const [cartItems, setCartItems] = useState({});
+    const [ratings, setRatings] = useState({});
 
     const addToCart = (itemId) => {
         if (!cartItems[itemId]) {
@@ -26,16 +26,25 @@ const StoreContextProvider = (props) => {
             return updatedCartItems;
         });
     };
-    
+
+    const updateRating = (itemId, newRating) => { // Change the parameter name from 'ratings' to 'newRating'
+        setRatings((prev) => ({ ...prev, [itemId]: newRating }));
+    };
 
     useEffect(() => {
         console.log(cartItems);
     }, [cartItems]);
 
+    useEffect(() => {
+        console.log(ratings);
+    }, [ratings]);
+
     const contextValue = {
         food_list,
         cartItems,
         setCartItems,
+        ratings,
+        updateRating,
         addToCart,
         removeFromCart
     };

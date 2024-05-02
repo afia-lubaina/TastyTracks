@@ -104,6 +104,52 @@ import iz_2 from './iz_2.jpg'
 import iz_3 from './iz_3.jpg'
 import iz_4 from './iz_4.jpg'
 import iz_5 from './iz_5.jpg'
+import courtyard from './courtyard.jpg'
+import res_1 from './res_1.jpg'
+import res_2 from './res_2.jpg'
+import res_3 from './res_3.jpg'
+import res_4 from './res_4.jpg'
+import res_5 from './res_5.jpg'
+import res_6 from './res_6.jpg'
+import res_7 from './res_7.jpg'
+import res_8 from './res_8.jpg'
+import res_10 from './res_10.jpg'
+import res_11 from './res_11.jpg'
+import res_12 from './res_12.jpg'
+import res_13 from './res_13.jpg'
+import res_14 from './res_14.jpg'
+import res_15 from './res_15.jpg'
+import res_16 from './res_16.jpg'
+import res_17 from './res_17.jpg'
+import res_18 from './res_18.jpg'
+import res_19 from './res_19.jpg'
+import crim_1 from './crim_1.jpg'
+import crim_2 from './crim_2.jpg'
+import crim_3 from './crim_3.jpg'
+import crim_4 from './crim_4.jpg'
+import crim_5 from './crim_5.jpg'
+import bis_1 from './bis_1.jpg'
+import bis_2 from './bis_2.jpg'
+import bis_3 from './bis_3.jpg'
+import bis_4 from './bis_4.jpg'
+import bis_5 from './bis_5.jpg'
+import bis_6 from './bis_6.jpg'
+import menu_9 from './menu_9.png'
+import jus_1 from './jus_1.jpg'
+import jus_2 from './jus_2.jpg'
+import jus_3 from './jus_3.jpg'
+import jus_4 from './jus_4.jpg'
+import jus_5 from './jus_5.jpg'
+import jus_6 from './jus_6.jpg'
+import jus_7 from './jus_7.jpg'
+import jus_8 from './jus_8.jpg'
+import jus_9 from './jus_9.jpg'
+import jus_10 from './jus_10.jpg'
+import jus_11 from './jus_11.jpg'
+
+
+
+
 
 export const assets = {
     Uttara,
@@ -170,11 +216,69 @@ export const assets = {
     iz_2,
     iz_3,
     iz_4,
-    iz_5
+    iz_5,
+    courtyard,
+    res_1,
+    res_2,
+    res_3,
+    res_4,
+    res_5,
+    res_6,
+    res_7,
+    res_8,
+    res_10,
+    res_11,
+    res_12,
+    res_13,
+    res_14,
+    res_15,
+    res_16,
+    res_17,
+    res_18,
+    res_19
+
 
 
 }
 
+export const menu_list = [
+    {
+        menu_name: "Salad",
+        menu_image: menu_1
+    },
+    {
+        menu_name: "Rolls",
+        menu_image: menu_2
+    },
+    {
+        menu_name: "Deserts",
+        menu_image: menu_3
+    },
+    {
+        menu_name: "Sandwich",
+        menu_image: menu_4
+    },
+    {
+        menu_name: "Cake",
+        menu_image: menu_5
+    },
+    {
+        menu_name: "Pure Veg",
+        menu_image: menu_6
+    },
+    {
+        menu_name: "Pasta",
+        menu_image: menu_7
+    },
+    {
+        menu_name: "Noodles",
+        menu_image: menu_8
+    },
+    {
+        menu_name: "Drinks",
+        menu_image: menu_9
+    }
+]
 
 export const location_list = [
     {
@@ -233,9 +337,9 @@ export const restaurant_list = [
     {
         id: "1",
         name: "The Courtyard at Park Heights",
-        image: food_1,
+        image: courtyard,
         rating: 12,
-        restaurant_images: [iz,iz_2,iz_3,iz_4,iz_5],
+        restaurant_images: [res_10,res_11,courtyard],
         description: "Quite ambient place to have a different foreign meal.",
         category: "Dhanmondi"
     },
@@ -249,20 +353,23 @@ export const restaurant_list = [
         category: "Dhanmondi"
     }, {
         id: "3",
-        name: "The Bistro",
-        restaurant_images: [iz,iz_2,iz_3,iz_4,iz_5],
+        name: "Bistro-E",
+        image: bis_1,
+        restaurant_images: [bis_1,bis_2,bis_3,bis_4,bis_5,bis_6],
         rating: 16,
         description: "A place where you can have a good time with your friends and family.",
         category: "Dhanmondi"
     }, {
         id: "4",
         name: "Crimson Cup",
-        restaurant_images: [iz,iz_2,iz_3,iz_4,iz_5],
+        image: crim_1,
+        restaurant_images: [crim_1,crim_2,crim_3,crim_4,crim_5],
         rating: 24,
         description: "Coffee shop with a variety of coffee and snacks.",
         category: "Dhanmondi"
     }, {
         id: "5",
+        image: iz,
         name: "Jatra Biroti",
         restaurant_images: [iz,iz_2,iz_3,iz_4,iz_5],
         rating: 14,
@@ -270,6 +377,7 @@ export const restaurant_list = [
         category: "Banani"
     }, {
         id: "6",
+        image: iz,
         name: "Terracotta Tales",
         restaurant_images: [iz,iz_2,iz_3,iz_4,iz_5],
         rating: 12,
@@ -277,6 +385,7 @@ export const restaurant_list = [
         category: "Banani"
     }, {
         id: "7",
+        image: iz,
         name: "NorthEnd",
         restaurant_images: [iz,iz_2,iz_3,iz_4,iz_5],
         rating: 20,
@@ -284,6 +393,7 @@ export const restaurant_list = [
         category: "Banani"
     }, {
         id: "8",
+        image: iz,
         name: "ChileKotha",
         restaurant_images: [iz,iz_2,iz_3,iz_4,iz_5],
         rating: 15,
@@ -292,6 +402,7 @@ export const restaurant_list = [
     }, {
         id: "9",
         name: "Nori",
+        image: iz,
         restaurant_images: [iz,iz_2,iz_3,iz_4,iz_5],
         rating: 14,
         description: "This place is a must-visit for all sushi lovers.",
@@ -431,8 +542,128 @@ export const restaurant_list = [
     }
 
  ] 
+
+
+
  export const food_list = [
- {
+    {
+        id: "1",
+        name: "Greek salad",
+        image: food_1,
+        price: 12,
+        description: "Food provides essential nutrients for overall health and well-being",
+        category: "Salad",
+        
+    },
+    {
+        id: "2",
+        name: "Veg salad",
+        image: food_2,
+        price: 18,
+        description: "Food provides essential nutrients for overall health and well-being",
+        category: "Salad",
+        
+
+    }, {
+        id: "3",
+        name: "Clover Salad",
+        image: food_3,
+        price: 16,
+        description: "Food provides essential nutrients for overall health and well-being",
+        category: "Salad",
+        
+    }, {
+        id: "4",
+        name: "Chicken Salad",
+        image: food_4,
+        price: 24,
+        description: "Food provides essential nutrients for overall health and well-being",
+        category: "Salad",
+        
+    }, {
+        id: "5",
+        name: "Lasagna Rolls",
+        image: food_5,
+        price: 14,
+        description: "Food provides essential nutrients for overall health and well-being",
+        category: "Rolls",
+        
+    }, {
+        id: "6",
+        name: "Peri Peri Rolls",
+        image: food_6,
+        price: 12,
+        description: "Food provides essential nutrients for overall health and well-being",
+        category: "Rolls",
+        
+    }, {
+        id: "7",
+        name: "Chicken Rolls",
+        image: food_7,
+        price: 20,
+        description: "Food provides essential nutrients for overall health and well-being",
+        category: "Rolls",
+        
+    }, {
+        id: "8",
+        name: "Veg Rolls",
+        image: food_8,
+        price: 15,
+        description: "Food provides essential nutrients for overall health and well-being",
+        category: "Rolls",
+        
+    }, {
+        id: "9",
+        name: "Ripple Ice Cream",
+        image: food_9,
+        price: 14,
+        description: "Food provides essential nutrients for overall health and well-being",
+        category: "Deserts"
+    }, {
+        id: "10",
+        name: "Fruit Ice Cream",
+        image: food_10,
+        price: 22,
+        description: "Food provides essential nutrients for overall health and well-being",
+        category: "Deserts"
+    }, {
+        id: "11",
+        name: "Jar Ice Cream",
+        image: food_11,
+        price: 10,
+        description: "Food provides essential nutrients for overall health and well-being",
+        category: "Deserts"
+    }, {
+        id: "12",
+        name: "Vanilla Ice Cream",
+        image: food_12,
+        price: 12,
+        description: "Food provides essential nutrients for overall health and well-being",
+        category: "Deserts"
+    },
+    {
+        id: "13",
+        name: "Chicken Sandwich",
+        image: food_13,
+        price: 12,
+        description: "Food provides essential nutrients for overall health and well-being",
+        category: "Sandwich"
+    },
+    {
+        id: "14",
+        name: "Vegan Sandwich",
+        image: food_14,
+        price: 18,
+        description: "Food provides essential nutrients for overall health and well-being",
+        category: "Sandwich"
+    }, {
+        id: "15",
+        name: "Grilled Sandwich",
+        image: food_15,
+        price: 16,
+        description: "Food provides essential nutrients for overall health and well-being",
+        category: "Sandwich"
+    }, {
         id: "16",
         name: "Bread Sandwich",
         image: food_16,
@@ -441,7 +672,7 @@ export const restaurant_list = [
         category: "Sandwich"
     }, {
         id: "17",
-        name: "Strawberry Cake",
+        name: "Cup Cake",
         image: food_17,
         price: 14,
         description: "Food provides essential nutrients for overall health and well-being",
@@ -554,4 +785,93 @@ export const restaurant_list = [
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Noodles"
     }
+    ,{
+        id: "43",
+        name: "Kitkat Shake",
+        image: jus_1,
+        price: 15,
+        description: "Food provides essential nutrients for overall health and well-being",
+        category: "Drinks"
+    },
+    {
+        id: "34",
+        name: "Passion Fruit Iced Tea",
+        image: jus_2,
+        price: 15,
+        description: "Food provides essential nutrients for overall health and well-being",
+        category: "Drinks"
+    },
+    {
+        id: "35",
+        name: "Lemon Mint",
+        image: jus_3,
+        price: 15,
+        description: "Food provides essential nutrients for overall health and well-being",
+        category: "Drinks"
+    },
+    {
+        id: "36",
+        name: "Pinapple Mojito",
+        image: jus_4,
+        price: 15,
+        description: "Food provides essential nutrients for overall health and well-being",
+        category: "Drinks"
+    },
+    {
+        id: "37",
+        name: "Blue Lagoon",
+        image: jus_5,
+        price: 15,
+        description: "Food provides essential nutrients for overall health and well-being",
+        category: "Drinks"
+    },
+    {
+        id: "38",
+        name: "Peach Iced Tea",
+        image: jus_6,
+        price: 15,
+        description: "Food provides essential nutrients for overall health and well-being",
+        category: "Drinks"
+    },
+    {
+        id: "39",
+        name: "Blueberry Vanilla Shake",
+        image: jus_7,
+        price: 15,
+        description: "Food provides essential nutrients for overall health and well-being",
+        category: "Drinks"
+    },
+    {
+        id: "40",
+        name: "Oreo Shake ",
+        image: jus_8,
+        price: 15,
+        description: "Food provides essential nutrients for overall health and well-being",
+        category: "Drinks"
+    },
+    {
+        id: "41",
+        name: "Tangerine Iced Tea",
+        image: jus_9,
+        price: 15,
+        description: "Food provides essential nutrients for overall health and well-being",
+        category: "Drinks"
+    },
+    {
+        id: "42",
+        name: "Rassberry Mojito",
+        image: jus_10,
+        price: 15,
+        description: "Food provides essential nutrients for overall health and well-being",
+        category: "Drinks"
+    },
+    {
+        id: "43",
+        name: "Watermelon Mojito",
+        image: jus_11,
+        price: 15,
+        description: "Food provides essential nutrients for overall health and well-being",
+        category: "Drinks"
+    }
+
 ]
