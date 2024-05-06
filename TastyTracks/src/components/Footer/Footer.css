@@ -77,3 +77,7 @@
     text-decoration: underline;
     cursor: pointer;
 }
+.add-restaurant-item:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}

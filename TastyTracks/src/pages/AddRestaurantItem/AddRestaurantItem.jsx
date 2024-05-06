@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './AddRestaurantItem.css';
 
-
 const AddRestaurantItem = () => {
   const [restaurantFormData, setRestaurantFormData] = useState({
     name: '',
@@ -92,7 +91,7 @@ const AddRestaurantItem = () => {
         <input type="email" id="email" name="email" value={restaurantFormData.email} onChange={handleChange} required />
 
         <label htmlFor="image">Upload Image:</label>
-        <input type="text" id="image" name="image" onChange={handleChange}  />
+        <input type="file" id="image" name="image" onChange={handleChange} required />
 
         <label htmlFor="password">Password:</label>
         <input type="password" id="password" name="password" value={restaurantFormData.password} onChange={handleChange} required />

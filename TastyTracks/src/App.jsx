@@ -12,6 +12,7 @@ import Restaurant from './pages/Restaurant/Restaurant'
 import { StoreContext } from './context/StoreContext'
 import { useContext } from 'react'
 import AddFoodItem from './pages/AddFoodItem/AddFoodItem'
+import AddRestaurantItem from './pages/AddRestaurantItem/AddRestaurantItem'
 
 
 const App = () => {
@@ -30,6 +31,8 @@ const App = () => {
         <Route path='/location/:location_name' element={<LocationPage/>} />
         <Route path='/restaurant/:restaurant_id' element={<Restaurant/>} />
         <Route path='/add-food-item' element={<AddFoodItem/>} />
+        <Route path='/add-restaurant-item' element={<AddRestaurantItem/>}/>
+        
       </Routes>
     </div>
     <Footer/>
