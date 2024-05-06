@@ -11,8 +11,8 @@ class UserService{
         return axios.post(API_URL + "/api/food/save", foodformData);
     }
 
-    SaveRest(formData){
-        return axios.post(API_URL+ "/api/restaurant/register",formData);
+    SaveRest(restaurantFormData){
+        return axios.post(API_URL+ "/api/restaurant/register",restaurantFormData);
     }
 
 }

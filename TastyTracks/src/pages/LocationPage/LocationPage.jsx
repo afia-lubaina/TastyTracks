@@ -1,25 +1,30 @@
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { restaurant_list } from '../../assets/assets/assets';
 import RestaurantItem from '../../components/RestaurantItem/RestaurantItem';
 import './LocationPage.css';
 import LocationHeader from '../../components/LocationHeader/LocationHeader';
 import { location_list } from '../../assets/assets/assets';
-
-
-
+import axios from 'axios';
 
 const LocationPage = () => {
   const { location_name } = useParams();
+  const [filteredRestaurants, setFilteredRestaurants] = useState([]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
-
+    fetchData();
   }, []);
 
-  const filteredRestaurants = restaurant_list.filter(
-    restaurant => restaurant.category === location_name
-  );
+  const fetchData = async () => {
+    try {
+      const response = await axios.get('http://localhost:8080/api/restaurant/'+location_name);
+      setFilteredRestaurants(response.data);
+      console.log("Get rest list "+ response.data);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
 
   const location = location_list.find(item => item.location_name === location_name);
   const imageUrls = location ? location.locationHeader_images : '';
@@ -31,7 +36,7 @@ const LocationPage = () => {
       <h2>Restaurants in {location_name}</h2>
       <div className="restaurant-list">
         {filteredRestaurants.map(restaurant => (
-          <RestaurantItem key={restaurant.id} restaurant={restaurant}  />
+          <RestaurantItem key={restaurant.rest_Id} restaurant={restaurant} />
         ))}
       </div>      
     </main>

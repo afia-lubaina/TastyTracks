@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './AddRestaurantItem.css';
+import { Link } from 'react-router-dom';
 
 const AddRestaurantItem = () => {
   const [restaurantFormData, setRestaurantFormData] = useState({
@@ -78,6 +79,7 @@ const AddRestaurantItem = () => {
     } catch (error) {
       console.error('Error adding restaurant:', error);
       setErrorMessage('Error adding restaurant. Please try again.');
+      setTimeout(() => setErrorMessage(''), 2000); 
     }
   };
 
@@ -107,6 +109,11 @@ const AddRestaurantItem = () => {
 
         <button type="submit" onClick={handleSubmit}>Add Restaurant</button>
       </form>
+      <h1 className='add-food-item'>Add Food Item</h1>
+      
+      <Link to='/add-food-item'>
+      <button>Add Food Item</button>
+      </Link>
       {successMessage && <div className="success-message">{successMessage}</div>}
       {errorMessage && <div className="error-message">{errorMessage}</div>}
     </div>

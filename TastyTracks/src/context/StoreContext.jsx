@@ -54,6 +54,8 @@ const StoreContextProvider = (props) => {
         fetchFoodData();
     }, []);
 
+ 
+
     const contextValue = {
 
         foodList,
