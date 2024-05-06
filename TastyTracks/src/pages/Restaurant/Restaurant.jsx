@@ -38,7 +38,7 @@ const Restaurant = () => {
       <RestaurantHeader slides={imageUrls}/>
       <ReservationForm onSubmit={handleReservationSubmit} />
       <ExploreMenu menu_category={menu_category} set_category={set_category} />
-      <CategorizedDisplay menu_category={menu_category}/>
+      <CategorizedDisplay menu_category={menu_category} restaurant_id={restaurant_id}/>
     </div>
   )
 }

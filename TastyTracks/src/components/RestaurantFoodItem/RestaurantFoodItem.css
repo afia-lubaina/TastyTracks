@@ -1,0 +1,91 @@
+.restaurant-food-item{
+    width:100%;
+    margin: auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    transition: 0.3s;
+    animation: fadeIn 1s;
+}
+
+.food-item-image{
+    width: 100%;
+    height: 40rem;
+    object-fit: cover;
+    border-radius: 15px 15px 0 0;
+}
+
+.restaurant-food-item-info{
+    padding: 30px;
+}
+
+
+
+.restaurant-food-item-name{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+
+.restaurant-food-item-name p{
+    font-size: 5rem;
+    font-weight: 500;
+    font-family: Outfit;
+}
+
+.restaurant-food-item-desc{
+    font-size: 1.8rem;
+    font-weight: 300;
+    margin-bottom: 20px;
+    font-family: Outfit;
+}
+
+.restaurant-food-item-image-container{
+    position: relative;
+
+}
+.restaurant-food-item-image-container .add{
+    width: 100px;
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    cursor: pointer;
+    border-radius: 50%;
+    border: 2px solid transparent; 
+    transition: border-color 0.3s; 
+}
+
+.restaurant-food-item-image-container .add:hover{
+    background-color: rgba(229, 17, 148, 0.1);
+    border-color: rgba(229, 17, 148, 1); 
+}
+
+.restaurant-food-item-counter{
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px;
+    border-radius: 50px;
+    background-color: white;
+}
+
+.restaurant-food-item-counter img{
+    width: 4.7rem;
+    height: 4.7rem;
+    cursor: pointer;
+}
+
+.restaurant-food-item-counter p{
+    font-size: 2rem;
+    font-weight: 400;
+    font-family: Outfit;
+}
+
+.restaurant-food-item-price{
+    font-size: 2rem;
+    font-family: Outfit;
+}
