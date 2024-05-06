@@ -35,7 +35,11 @@ const Footer = () => {
             <Link to='/add-food-item'>
             <li className='add-food-item'>Add Food Item</li>
           </Link>
+          <Link to='/add-restaurant-item'>
+            <li className='add-restaurant-item'>Add Restaurants</li>
+          </Link>
             </ul>
+            
         </div>
         </div>
         <hr/>
