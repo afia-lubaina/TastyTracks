@@ -14,12 +14,12 @@ const FoodDisplay = () => {
         {foodList.map((ix, index) => (
           <FoodItem
             key={index}//rest_id, item, category, description, img_url, price, rest_name
-            id={ix.rest_id} 
+            rest_id={ix.rest_id} 
             item={ix.item} 
             description={ix.description}
             category={ix.category}
             price={ix.price}
-            image={ix.img_url} 
+            img_url={ix.img_url} 
             rest_name={ix.rest_name}
           />
         ))}

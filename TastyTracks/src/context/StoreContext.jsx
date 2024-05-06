@@ -45,7 +45,8 @@ const StoreContextProvider = (props) => {
             try {
                 var response = await axios.get('http://localhost:8080/api/food/all');
                 setFoodList(response.data);
-                console.log("Get foodlist "+ response);
+               // console.log("Get foodlist "+ response);
+               //console.log("Get foodlist "+ response.data.map((ix) => ix.rest_id));
             } catch (error) {
                 console.error('Error fetching food data:', error);
             }

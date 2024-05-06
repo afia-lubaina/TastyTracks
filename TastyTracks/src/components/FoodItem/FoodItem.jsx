@@ -9,35 +9,35 @@ import { useEffect, useState } from "react";
 
 const FoodItem = ({ rest_id, item, category, description, img_url, price, rest_name }) => {
   const { cartItems, addToCart, removeFromCart } = useContext(StoreContext);
-
-  console.log("food item "+img_url);
+console.log("food item "+rest_id);
+  //console.log("food item "+img_url);
 
   ///image/{item}/{restId}
 
-  const [image, setImage] = useState('');
+  // const [image, setImage] = useState('');
 
 
-  useEffect(() => {
-    async function fetchImageData() {
-      try {
-        const response = await axios.get(`http://localhost:8080/api/food/image/${item}/${rest_id}`, {
-          responseType: 'arraybuffer' // Set the response type to arraybuffer
-        });
-        const blob = new Blob([response.data], { type: 'image/jpeg' }); // Create a blob from the arraybuffer
-        const imageUrl = URL.createObjectURL(blob); // Create a blob URL
-        setImage(img_url);
-      } catch (error) {
-        console.error('Error fetching image:', error);
-      }
-    }
-    fetchImageData();
-  }, [item, rest_id]);
+  // useEffect(() => {
+  //   async function fetchImageData() {
+  //     try {
+  //       const response = await axios.get(`http://localhost:8080/api/food/image/item/rest_id`, {
+  //         responseType: 'arraybuffer' // Set the response type to arraybuffer
+  //       });
+  //       const blob = new Blob([response.data], { type: 'image/jpeg' }); // Create a blob from the arraybuffer
+  //       const imageUrl = URL.createObjectURL(blob); // Create a blob URL
+  //       setImage(imageUrl);
+  //     } catch (error) {
+  //       console.error('Error fetching image:', error);
+  //     }
+  //   }
+  //   fetchImageData();
+  // }, [item, rest_id]);
   
 
   return (
     <div className="food-item">
       <div className="food-item-image-container">
-        <img className="food-item-image" src={image} alt="" />
+        <img className="food-item-image" src={"http://localhost:8080/api/food/image/"+item+"/"+rest_id} alt="" />
         {/* {!cartItems[rest_id] ? (
           <img className="add" onClick={() => addToCart(rest_id)} src={assets.add_icon_white} alt="" />
         ) : (
