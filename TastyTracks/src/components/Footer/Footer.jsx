@@ -1,6 +1,8 @@
 import React from 'react'
 import './Footer.css'
 import { assets } from '../../assets/assets/assets'
+import { Link } from 'react-router-dom'
+
 
 const Footer = () => {
   return (
@@ -30,6 +32,9 @@ const Footer = () => {
             <ul>
                 <li>+880175778345</li>
                 <li>contact@TastyTracks.com</li>
+            <Link to='/add-food-item'>
+            <li className='add-food-item'>Add Food Item</li>
+          </Link>
             </ul>
         </div>
         </div>

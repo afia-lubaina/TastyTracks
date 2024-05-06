@@ -1,0 +1,96 @@
+.add-food-item-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.add-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  background-color: rgb(225, 74, 99);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.food-item-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 400px;
+  margin-top: 20px;
+  padding: 20px;
+  border: rgb(225, 74, 99) solid 1px;
+}
+
+.food-item-form label {
+  font-size: 1.2rem;
+}
+
+.food-item-form input[type="text"],
+.food-item-form input[type="file"] {
+  padding: 10px;
+  font-size: 1.1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.food-item-form button[type="submit"] {
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  background-color: rgb(225, 74, 99);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.popup p {
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.popup button {
+  padding: 8px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.popup button:hover {
+  background-color: #0056b3;
+}
+
+.success-message,
+.error-message {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  border-radius: 5px;
+}
+
+.success-message {
+  background-color: #2ecc71;
+  color: white;
+}
+
+.error-message {
+  background-color: #e74c3c;
+  color: white;
+}

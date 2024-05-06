@@ -1,9 +1,10 @@
 import React, { createContext, useState, useEffect } from "react";
-import { food_list } from '../assets/assets/assets';
+import axios from 'axios';
 
 export const StoreContext = createContext(null);
 
 const StoreContextProvider = (props) => {
+    const [foodList, setFoodList] = useState([]);
     const [cartItems, setCartItems] = useState({});
     const [ratings, setRatings] = useState({});
 
@@ -27,7 +28,7 @@ const StoreContextProvider = (props) => {
         });
     };
 
-    const updateRating = (itemId, newRating) => { // Change the parameter name from 'ratings' to 'newRating'
+    const updateRating = (itemId, newRating) => {
         setRatings((prev) => ({ ...prev, [itemId]: newRating }));
     };
 
@@ -39,8 +40,22 @@ const StoreContextProvider = (props) => {
         console.log(ratings);
     }, [ratings]);
 
+    useEffect(() => {
+        async function fetchFoodData() {
+            try {
+                var response = await axios.get('http://localhost:8080/api/food/all');
+                setFoodList(response.data);
+                console.log("Get foodlist "+ response);
+            } catch (error) {
+                console.error('Error fetching food data:', error);
+            }
+        }
+        fetchFoodData();
+    }, []);
+
     const contextValue = {
-        food_list,
+
+        foodList,
         cartItems,
         setCartItems,
         ratings,

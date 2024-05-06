@@ -27,3 +27,14 @@ const ResForm = () => {
 }
 
 export default ResForm
+
+
+{/* {!cartItems[rest_id] ? (
+          <img className="add" onClick={() => addToCart(rest_id)} src={assets.add_icon_white} alt="" />
+        ) : (
+          <div className="food-item-counter">
+            <img onClick={() => removeFromCart(rest_id)} src={assets.remove_icon_red} alt="" />
+            <p>{cartItems[rest_id]}</p>
+            <img onClick={() => addToCart(rest_id)} src={assets.add_icon_green} alt="" />
+          </div>
+        )} */}
