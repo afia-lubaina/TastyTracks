@@ -89,3 +89,8 @@
     font-size: 2rem;
     font-family: Outfit;
 }
+
+.restaurant-food-item-image {
+    width: 40rem;
+    height: 30rem;
+}

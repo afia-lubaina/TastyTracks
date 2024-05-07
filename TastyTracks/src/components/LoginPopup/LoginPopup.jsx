@@ -4,30 +4,42 @@ import './LoginPopup.css';
 import { assets } from '../../assets/assets/assets';
 
 const LoginPopup = ({ setShowLogin }) => {
-    const [currState, setCurrState] = useState('Sign Up');
-    const [formData,setFormData] = useState({
+    const [step, setStep] = useState('select'); // Step state to manage different steps
+    const [the_user, set_theuser]= useState(null);
+    const [loginOption, setLoginOption] = useState(null); 
+    const [signinOption, setSigninOption] = useState(null); //  option state
+    const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
         email: '',
         phone: '',
         password: '',
-        img_url: ''
+        img_url: '',
+        restaurantName: '',
+        restaurantLocation: ''
     });
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        try {
-            if (currState === 'Sign Up') {
-              var response=   await axios.post('http://localhost:8080/api/user/register', formData);
-              console.log(response);
-                // Handle sign up success
-            } else {
-                await axios.post('your_login_api_endpoint', formData);
-                // Handle login success
+        // Handle form submission based on the current step and login option
+        if (step === 'login') {
+            try {
+                if (loginOption === 'user') {
+                    // Handle user login
+                } else if (loginOption === 'restaurant_owner') {
+                    // Handle restaurant owner login
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                // Handle error
             }
-        } catch (error) {
-            console.error('Error:', error);
-            // Handle error
+        } else if (step === 'signup') {
+            try {
+                // Handle sign up
+            } catch (error) {
+                console.error('Error:', error);
+                // Handle error
+            }
         }
     };
 
@@ -36,40 +48,86 @@ const LoginPopup = ({ setShowLogin }) => {
         setFormData({ ...formData, [name]: value });
     };
 
+    // Function to handle selecting login option
+    const handleLoginOption = (option) => {
+        setStep('login_as_user'); // Move to login step
+        set_theuser(option); // Move to login/sign up as user or restaurant owner step
+        
+    };
+
+    const handleSignupOption = (option) => {
+        setStep('signup_as_user'); // Move to signup step
+        set_theuser(option); // Move to login/sign up as user or restaurant owner step
+    };
+
+
     return (
         <div className='login-popup'>
-            <form className='login-popup-container' onSubmit={handleSubmit}>
+            {step === 'select' && (
+                <div className='login-popup-container'>
+                    <div className='login-popup-title'>
+                        <h2 style={{ color: 'rgb(225, 74, 99)' }}>Choose Action</h2>
+                        <img onClick={() => setShowLogin(false)} src={assets.cross_icon} alt='' />
+                    </div>
+                    <button onClick={() => setStep('login')}>Login</button>
+                    <button onClick={() => setStep('signup')}>Sign Up</button>
+                </div>
+            )}
+            {(step === 'login' ) && (
+                <div className='login-popup-container'>
+                    <div className='login-popup-title'>
+                        
+                    <img className='back-icon' onClick={() => setStep('select')} src={assets.back} alt='' />
+                        <h2 style={{ color: 'rgb(225, 74, 99)' }}>Login</h2>
+                        <img onClick={() =>  setShowLogin(false)} src={assets.cross_icon} alt='' />
+                    </div>
+                    <button onClick={() => handleLoginOption('user')}>Login as User</button>
+                    <button onClick={() => handleLoginOption('restaurant_owner')}>Login as Restaurant Owner</button>
+                </div>
+            )}
+            {(step === 'signup') && (
+                <div className='login-popup-container'>
+                    <div className='login-popup-title'>
+                        
+                    <img className='back-icon' onClick={() => setStep('select')} src={assets.back} alt='' />
+                        <h2 style={{ color: 'rgb(225, 74, 99)' }}>SignUp</h2>
+                        <img onClick={() =>  setShowLogin(false)} src={assets.cross_icon} alt='' />
+                    </div>
+                    <button onClick={() => handleSignupOption('user')}>SignUp as User</button>
+                    <button onClick={() => handleSignupOption('restaurant_owner')}>SignUp as Restaurant Owner</button>
+                </div>
+            )}
+            {(step==='login_as_user') && (
+                <form className='login-popup-container' onSubmit={handleSubmit}>
                 <div className='login-popup-title'>
-                    <h2 style={{ color: 'rgb(225, 74, 99)' }}>{currState}</h2>
-                    <img onClick={() => setShowLogin(false)} src={assets.cross_icon} alt='' />
-                </div>
+                        
+                <img className='back-icon' onClick={() => setStep('login')} src={assets.back} alt='' />
+                        <h2 style={{ color: 'rgb(225, 74, 99)' }}>Login</h2>
+                        <img onClick={() =>  setShowLogin(false)} src={assets.cross_icon} alt='' />
+                 </div>
+                
                 <div className='login-popup-inputs'>
-                    {currState === 'Login' ? null : (
-                        <input type='text' placeholder='First Name' name='firstName' value={formData.firstName} onChange={handleChange} required />
-                    )}
-                    {currState === 'Login' ? null : (
-                        <input type='text' placeholder='Last Name' name='lastName' value={formData.lastName} onChange={handleChange} required />
-                    )}
                     <input type='text' placeholder='Email' name='email' value={formData.email} onChange={handleChange} required />
-                    <input type='text' placeholder='Phone' name='phone' value={formData.phone} onChange={handleChange} required />
                     <input type='password' placeholder='Password' name='password' value={formData.password} onChange={handleChange} required />
-                    <input type='text' placeholder='Image URL' name='img_url' value={formData.img_url} onChange={handleChange} required />
                 </div>
-                <button type='submit'>{currState === 'Sign Up' ? 'Create Account' : 'Login'}</button>
-                <div className='login-popup-condition'>
-                    <input type='checkbox' required />
-                    <p>I agree to the terms and conditions</p>
+                <button type='submit'>Login as {the_user==='user'?'User':'Restaurant Owner'}</button>
+            </form>)
+            }
+            {(step==='signup_as_user') && (
+                <form className='login-popup-container' onSubmit={handleSubmit}>
+                <div className='login-popup-title'>
+                        
+                         <img className='back-icon' onClick={() => setStep('signup')} src={assets.back} alt='' />        
+                        <h2 style={{ color: 'rgb(225, 74, 99)' }}>Signup</h2>
+                        <img onClick={() =>  setShowLogin(false)} src={assets.cross_icon} alt='' />
+                 </div>
+                <div className='login-popup-inputs'>
+                    <input type='text' placeholder='Email' name='email' value={formData.email} onChange={handleChange} required />
+                    <input type='password' placeholder='Password' name='password' value={formData.password} onChange={handleChange} required />
                 </div>
-                {currState === 'Login' ? (
-                    <p>
-                        Create a new account? <span onClick={() => setCurrState('Sign Up')}>Click here</span>
-                    </p>
-                ) : (
-                    <p>
-                        Already have an account? <span onClick={() => setCurrState('Login')}>Login here</span>
-                    </p>
-                )}
-            </form>
+                <button type='submit'>SignUp as {the_user==='user'?'User':'Restaurant Owner'}</button>
+            </form>)
+            }
         </div>
     );
 };

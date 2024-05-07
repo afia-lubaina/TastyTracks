@@ -20,9 +20,9 @@ const SlickSlider = ({ slides }) => {
     return (
         <div className="content">
             <div className="container">
-                <Slider {...settings}>
+                <Slider {...settings} className='slider-component'>
                     {slides.map((slide, index) => (
-                        <div key={index}>
+                        <div className='slider-image' key={index}>
                             <div className="img-body">
                                 <img src={slide} alt={`Slide ${index}`} />
                             </div>

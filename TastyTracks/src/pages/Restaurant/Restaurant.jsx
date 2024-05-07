@@ -7,22 +7,39 @@ import ExploreMenu from '../../components/ExploreMenu/ExploreMenu';
 import { useEffect, useState } from 'react';
 import CategorizedDisplay from '../../components/CategorizedDisplay/CategorizedDisplay';
 import ReservationForm from '../../components/ReservationForm/ReservationForm';
+import axios from 'axios';
+
 
 const Restaurant = () => {
     const { restaurant_id } = useParams();
+    const [restaurant, setRestaurant] = useState({});
+  
 
     useEffect(() => {
       window.scrollTo(0, 0);
   
     }, []);
 
-    const filteredRestaurants = restaurant_list.filter(
-        restaurant => restaurant.id === restaurant_id
-    );
-   
-    const restaurant = restaurant_list.find(item => item.id === restaurant_id);
-    const imageUrls = restaurant ? restaurant.restaurant_images : '';
-    const name = restaurant ? restaurant.name : '';
+    useEffect(() => {
+      fetchData(); // Call fetchData here
+      window.scrollTo(0, 0);
+  }, []);
+  
+
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`http://localhost:8080/api/restaurant/getOne/${restaurant_id}`);
+        setRestaurant(response.data);
+        console.log("Get rest list "+ restaurant.name);
+
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    const restaurant_list_item = restaurant_list.find(item => item.name === restaurant.name);
+    const imgUrls = restaurant_list_item ? restaurant_list_item.restaurant_images : '';
+    console.log("restaurant img"+imgUrls);
 
     const [menu_category,set_category]=useState("All");
 
@@ -33,9 +50,9 @@ const Restaurant = () => {
   return (
     <div className='restaurant-page'>
       <div className='restaurant-header'>
-      <h2>{name}</h2>
+      <h2>{restaurant.name}</h2>
       </div>
-      <RestaurantHeader slides={imageUrls}/>
+      {imgUrls && <RestaurantHeader slides={imgUrls}/>}
       <ReservationForm onSubmit={handleReservationSubmit} />
       <ExploreMenu menu_category={menu_category} set_category={set_category} />
       <CategorizedDisplay menu_category={menu_category} restaurant_id={restaurant_id}/>

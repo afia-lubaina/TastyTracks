@@ -2,14 +2,11 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './AddRestaurantItem.css';
 import { Link } from 'react-router-dom';
-import ExploreMenu from '../../components/ExploreMenu/ExploreMenu';
-import CategorizedDisplay from '../../components/CategorizedDisplay/CategorizedDisplay';
 
 
 
 const AddRestaurantItem = () => {
 
-  const [menu_category,set_category]=useState("All");
   const [restaurantFormData, setRestaurantFormData] = useState({
     name: '',
     email: '',
@@ -67,6 +64,13 @@ const AddRestaurantItem = () => {
         }
       });
 
+
+      
+    // Assuming the backend responds with the newly created restaurant data including rest_Id
+      const { rest_Id } = response.data;
+
+      console.log("Newly created restaurant Id:", rest_Id);
+
       console.log("restaurant response " + response);
 
       setSuccessMessage('Restaurant added successfully.');
@@ -121,8 +125,6 @@ const AddRestaurantItem = () => {
       <button>Add Food Item</button>
       </Link>
       
-      <ExploreMenu menu_category={menu_category} set_category={set_category} />
-      <CategorizedDisplay menu_category={menu_category} className='addcat'/>
 
       {successMessage && <div className="success-message">{successMessage}</div>}
       {errorMessage && <div className="error-message">{errorMessage}</div>}

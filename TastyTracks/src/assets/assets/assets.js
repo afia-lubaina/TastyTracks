@@ -146,6 +146,7 @@ import jus_8 from './jus_8.jpg'
 import jus_9 from './jus_9.jpg'
 import jus_10 from './jus_10.jpg'
 import jus_11 from './jus_11.jpg'
+import back from './back.png'
 
 
 
@@ -235,7 +236,8 @@ export const assets = {
     res_16,
     res_17,
     res_18,
-    res_19
+    res_19,
+    back
 
 
 

@@ -37,7 +37,7 @@ console.log("food item "+rest_id);
   return (
     <div className="food-item">
       <div className="food-item-image-container">
-        <img className="food-item-image" src={"http://localhost:8080/api/food/image/"+item+"/"+rest_id} alt="" />
+        <img className="food-item-image" width={40} height={40} src={"http://localhost:8080/api/food/image/"+item+"/"+rest_id} alt="" />
         {!cartItems[rest_id] ? (
           <img className="add" onClick={() => addToCart(rest_id)} src={assets.add_icon_white} alt="" />
         ) : (

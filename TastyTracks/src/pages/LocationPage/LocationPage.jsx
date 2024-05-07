@@ -20,7 +20,7 @@ const LocationPage = () => {
     try {
       const response = await axios.get('http://localhost:8080/api/restaurant/'+location_name);
       setFilteredRestaurants(response.data);
-      console.log("Get rest list "+ response.data);
+      console.log("Get rest list "+ response.location_name);
     } catch (error) {
       console.error('Error fetching data:', error);
     }

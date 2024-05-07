@@ -2,8 +2,13 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './AddFoodItem.css';
 import { useEffect } from 'react';
+import ExploreMenu from '../../components/ExploreMenu/ExploreMenu';
+import CategorizedDisplay from '../../components/CategorizedDisplay/CategorizedDisplay';
 
 const AddFoodItem = () => {
+
+  
+  const [menu_category,set_category]=useState("All");
   const [showForm, setShowForm] = useState(false);
   const [foodformData, setfoodformData] = useState({
     rest_name: '',
@@ -58,7 +63,7 @@ const AddFoodItem = () => {
       formData.append('image', foodformData.image);
       formData.append('category', foodformData.category);
       formData.append('item', foodformData.item);
-      formData.append('rest_id', 1);
+      formData.append('rest_id', 1);  
 
       var response = await axios.post('http://localhost:8080/api/food/save', formData, {
         headers: {
@@ -132,6 +137,10 @@ const AddFoodItem = () => {
           <button onClick={() => setShowPopup(false)}>OK</button>
         </div>
       )}
+
+      
+      <ExploreMenu menu_category={menu_category} set_category={set_category} />
+      <CategorizedDisplay menu_category={menu_category} className='addcat'/>
 
       {successMessage && <div className="success-message">{successMessage}</div>}
       {errorMessage && <div className="error-message">{errorMessage}</div>}

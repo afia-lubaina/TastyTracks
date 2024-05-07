@@ -61,5 +61,10 @@
   flex: 1; /* Allow the description to take up remaining space */
 }
 
+.restaurant-food-item-image {
+  width: 40rem;
+  height: 30rem;
+}
+
 
 

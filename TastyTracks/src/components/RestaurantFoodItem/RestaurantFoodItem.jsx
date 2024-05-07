@@ -9,7 +9,9 @@ import { useEffect, useState } from "react";
 
 const RestaurantFoodItem = ({ rest_id, item, category, description, img_url, price, rest_name }) => {
   const { cartItems, addToCart, removeFromCart } = useContext(StoreContext);
-console.log("food category "+category);
+  console.log("restaurant food item "+item);
+  console.log("food category "+category);
+
   //console.log("food item "+img_url);
 
   ///image/{item}/{restId}
