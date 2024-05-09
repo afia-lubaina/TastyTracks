@@ -1,12 +1,20 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './LoginPopup.css';
 import { assets } from '../../assets/assets/assets';
+import { useNavigate } from 'react-router-dom';
+
+
+
 
 const LoginPopup = ({ setShowLogin }) => {
+
+   
+    const navigate = useNavigate();
     const [step, setStep] = useState('select'); // Step state to manage different steps
     const [the_user, set_theuser]= useState(null);
     const [loginOption, setLoginOption] = useState(null); 
+    const [rest_stat,setRest_stat]=useState(false); //  option state
     const [signinOption, setSigninOption] = useState(null); //  option state
     const [formData, setFormData] = useState({
         firstName: '',
@@ -18,6 +26,15 @@ const LoginPopup = ({ setShowLogin }) => {
         restaurantName: '',
         restaurantLocation: ''
     });
+
+
+    useEffect(() => {
+        if (rest_stat) {
+          navigate('/add-restaurant-item');
+          setShowLogin(false);
+
+        }
+      }, [rest_stat, navigate]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -35,7 +52,10 @@ const LoginPopup = ({ setShowLogin }) => {
             }
         } else if (step === 'signup') {
             try {
-                // Handle sign up
+                if (the_user==='restaurant_owner'){/* 
+                    navigate('/add-restaurant-item'); */
+
+                }
             } catch (error) {
                 console.error('Error:', error);
                 // Handle error
@@ -58,6 +78,7 @@ const LoginPopup = ({ setShowLogin }) => {
     const handleSignupOption = (option) => {
         setStep('signup_as_user'); // Move to signup step
         set_theuser(option); // Move to login/sign up as user or restaurant owner step
+        setRest_stat(true); 
     };
 
 

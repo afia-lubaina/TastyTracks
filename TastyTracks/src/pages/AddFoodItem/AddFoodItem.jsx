@@ -1,15 +1,19 @@
 import React, { useState } from 'react'; 
-import axios from 'axios';
 import './AddFoodItem.css';
+import { restaurant_list } from '../../assets/assets/assets';
 import { useEffect } from 'react';
+import RestaurantHeader from '../../components/RestaurantHeader/RestaurantHeader';
 import ExploreMenu from '../../components/ExploreMenu/ExploreMenu';
 import CategorizedDisplay from '../../components/CategorizedDisplay/CategorizedDisplay';
+import ReservationForm from '../../components/ReservationForm/ReservationForm';
+import axios from 'axios';
+import { useParams } from 'react-router-dom';
+
 
 const AddFoodItem = () => {
 
   
   const [menu_category,set_category]=useState("All");
-  const [showForm, setShowForm] = useState(false);
   const [foodformData, setfoodformData] = useState({
     rest_name: '',
     price: '',
@@ -23,13 +27,6 @@ const AddFoodItem = () => {
   const [successMessage, setSuccessMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
-  const toggleForm = () => {
-    setShowForm(!showForm);
-  };
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
@@ -45,6 +42,34 @@ const AddFoodItem = () => {
       });
     }
   };
+
+  const { rest_Id } = useParams();
+    const [restaurant, setRestaurant] = useState({});
+    console.log("restaurant id "+rest_Id);
+    
+    useEffect(() => {
+      fetchData(); // Call fetchData here
+      window.scrollTo(0, 0);
+  }, []);
+  
+
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`http://localhost:8080/api/restaurant/getOne/${rest_Id}`);
+        setRestaurant(response.data);
+        console.log("Get rest list "+ restaurant.name);
+
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    const restaurant_list_item = restaurant_list.find(item => item.name === restaurant.name);
+    const imgUrls = restaurant_list_item ? restaurant_list_item.restaurant_images : '';
+    console.log("restaurant img"+imgUrls);
+
+  //////////////////////////////////////////////////////////////////////////
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -90,25 +115,31 @@ const AddFoodItem = () => {
         rest_id: 1
       });
       
-      // Close the form
-      setShowForm(false);
     } catch (error) {
       console.error('Error adding food item:', error);
       // Show error message
       setErrorMessage('Error adding food item. Please try again.');
       setTimeout(() => setErrorMessage(''), 2000); // Hide after 3 seconds
     }
+     
+
+    ////////////////////////////////////////////////////////////////////////
+    
   };
 
   return (
     <div className='add-food-item-page'>
-      {/* Circular button with plus icon */}
-      <button className="add-button" onClick={toggleForm}>
-        Add Item
-      </button>
+      <div className='restaurant-header'>
+          <h2>{restaurant.name}</h2>
+      </div>
       
-      {showForm && (
+      <h1 className='add-food-item-header'>Add Food Item</h1>
+      
+      { (
         <form className="food-item-form">
+          <label htmlFor="item">Item Name:</label>
+          <input type="text" id="item" name="item" value={foodformData.item} onChange={handleChange} required />
+
           <label htmlFor="rest_name">Restaurant Name:</label>
           <input type="text" id="rest_name" name="rest_name" value={foodformData.rest_name} onChange={handleChange} required />
 
@@ -124,9 +155,6 @@ const AddFoodItem = () => {
           <label htmlFor="category">Category:</label>
           <input type="text" id="category" name="category" value={foodformData.category} onChange={handleChange} required />
 
-          <label htmlFor="item">Item:</label>
-          <input type="text" id="item" name="item" value={foodformData.item} onChange={handleChange} required />
-
           <button type="submit" onClick={handleSubmit}>Add</button>
         </form>
       )}
@@ -139,8 +167,11 @@ const AddFoodItem = () => {
       )}
 
       
+      
+      {imgUrls && <RestaurantHeader slides={imgUrls}/>}
       <ExploreMenu menu_category={menu_category} set_category={set_category} />
-      <CategorizedDisplay menu_category={menu_category} className='addcat'/>
+      <CategorizedDisplay menu_category={menu_category} restaurant_id={rest_Id}/>
+
 
       {successMessage && <div className="success-message">{successMessage}</div>}
       {errorMessage && <div className="error-message">{errorMessage}</div>}

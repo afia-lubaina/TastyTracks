@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './AddRestaurantItem.css';
-import { Link } from 'react-router-dom';
-
-
+import { useNavigate } from 'react-router-dom';
 
 const AddRestaurantItem = () => {
+  const navigate = useNavigate();
 
   const [restaurantFormData, setRestaurantFormData] = useState({
     name: '',
@@ -18,6 +17,7 @@ const AddRestaurantItem = () => {
   });
   const [successMessage, setSuccessMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const [success_stat, setSuccess_stat] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -64,17 +64,13 @@ const AddRestaurantItem = () => {
         }
       });
 
-
-      
-    // Assuming the backend responds with the newly created restaurant data including rest_Id
+      // Assuming the backend responds with the newly created restaurant data including rest_Id
       const { rest_Id } = response.data;
-
       console.log("Newly created restaurant Id:", rest_Id);
-
-      console.log("restaurant response " + response);
 
       setSuccessMessage('Restaurant added successfully.');
       setTimeout(() => setSuccessMessage(''), 2000);
+      setSuccess_stat(true);
 
       // Reset form fields
       setRestaurantFormData({
@@ -93,10 +89,16 @@ const AddRestaurantItem = () => {
     }
   };
 
+  useEffect(() => {
+    if (success_stat) {
+      navigate('/add-food-item/${rest_Id}');
+    }
+  }, [success_stat, navigate]);
+
   return (
     <div className='add-restaurant-item-page'>
       <form className="restaurant-item-form">
-        <label htmlFor="name">Name:</label>
+      <label htmlFor="name">Name:</label>
         <input type="text" id="name" name="name" value={restaurantFormData.name} onChange={handleChange} required />
 
         <label htmlFor="email">Email:</label>
@@ -119,12 +121,7 @@ const AddRestaurantItem = () => {
 
         <button type="submit" onClick={handleSubmit}>Add Restaurant</button>
       </form>
-      <h1 className='add-food-item'>Add Food Item</h1>
-      
-      <Link to='/add-food-item'>
-      <button>Add Food Item</button>
-      </Link>
-      
+
 
       {successMessage && <div className="success-message">{successMessage}</div>}
       {errorMessage && <div className="error-message">{errorMessage}</div>}

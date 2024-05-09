@@ -1,27 +1,24 @@
 .add-food-item-page {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  margin: 0 auto;
+  width: 80%;
 }
 
-.add-button {
+.add-food-item-header{
   margin-top: 20px;
-  padding: 10px 20px;
-  font-size: 1.2rem;
-  background-color: rgb(225, 74, 99);
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+  font-size: 3rem;
+  color: rgb(225, 74, 99)
 }
+
 
 .food-item-form {
   display: flex;
   flex-direction: column;
+  z-index: 100;
   gap: 20px;
-  max-width: 400px;
-  margin-top: 20px;
-  padding: 20px;
+  max-width: 60rem;
+  max-height: 50rem;
+  margin-top: 30px;
+  padding: 30px;
   border: rgb(225, 74, 99) solid 1px;
 }
 
@@ -94,3 +91,17 @@
   background-color: #e74c3c;
   color: white;
 }
+
+.restaurant-header{
+  font-size: 5rem;
+  text-align: center;
+  font-weight: 600;
+  background-image: url('/font_back.jpg');
+  color: transparent;
+  font-family: Outfit;
+  background-clip: text;
+  -webkit-background-clip: text;
+  margin-top: 7rem;
+  margin-bottom: 2rem;
+  animation: fadeIn 1s;
+  }

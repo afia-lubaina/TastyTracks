@@ -8,24 +8,24 @@ const StoreContextProvider = (props) => {
     const [cartItems, setCartItems] = useState({});
     const [ratings, setRatings] = useState({});
 
-    const addToCart = (itemId) => {
-        if (!cartItems[itemId]) {
-            setCartItems((prev) => ({ ...prev, [itemId]: 1 }));
-        } else {
-            setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
-        }
+    const addToCart = (rest_id,item) => {
+        setCartItems((prevItems) => {
+            const updatedItems = { ...prevItems };
+            const key = `${rest_id}_${item}`; // Generate unique key combining rest_id and item
+            updatedItems[key] = (prevItems[key] || 0) + 1; // Increment quantity of item with generated key
+            return updatedItems;
+          });
     };
 
-    const removeFromCart = (itemId) => {
-        setCartItems((prev) => {
-            const updatedCartItems = { ...prev };
-            if (updatedCartItems[itemId] > 1) {
-                updatedCartItems[itemId] -= 1;
-            } else {
-                delete updatedCartItems[itemId];
+    const removeFromCart = (rest_id,item) => {
+        setCartItems((prevItems) => {
+            const updatedItems = { ...prevItems };
+            const key = `${rest_id}_${item}`; // Generate unique key combining rest_id and item
+            if (updatedItems[key] > 0) {
+              updatedItems[key] -= 1; // Decrement quantity of item with generated key
             }
-            return updatedCartItems;
-        });
+            return updatedItems;
+          });
     };
 
     const updateRating = (itemId, newRating) => {
