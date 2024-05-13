@@ -1,0 +1,56 @@
+.checkout{
+    margin: 0 auto;
+    width: 80%;
+}
+
+.checkout-items {
+    margin-top: 3rem;
+    justify-content: space-between;
+    border: 1px solid #ccc;
+    padding: 30px;
+    margin-bottom: 20px;
+    align-items: center;
+    display: flex;
+    
+  }
+
+.order-grid-items {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0px;
+    gap: 20px;
+}
+
+.order-grid-item {
+    margin-right: 100px;
+}
+
+  
+.checkout-items img {
+    width: 70rem; /* Adjust size as needed */
+    height: 50rem;
+    margin-right: 100px;
+}
+  
+.checkout-items div {
+    flex: 1
+}
+  
+.checkout-items p {
+    margin: 15px 0; /* Increased spacing between lines */
+    font-size: 2.5rem;
+    font-family: Outfit;
+}
+
+/* Bold caption */
+.checkout-items p.item-caption {
+    font-weight: bold;
+}
+  
+/* Center Loading text */
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px; /* Adjust as needed */
+}

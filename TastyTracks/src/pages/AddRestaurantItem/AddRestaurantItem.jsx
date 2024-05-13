@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 const AddRestaurantItem = () => {
   const navigate = useNavigate();
+  const [rest_Id, setRest_Id] = useState(null);
 
   const [restaurantFormData, setRestaurantFormData] = useState({
     name: '',
@@ -58,14 +59,23 @@ const AddRestaurantItem = () => {
       formData.append('description', restaurantFormData.description);
       formData.append('phone', restaurantFormData.phone);
 
+
       const response = await axios.post('http://localhost:8080/api/restaurant/register', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
       });
+      setRest_Id(response.data);
+      localStorage.setItem('token', response.data.token);
+      //window.location.href = '/login-rest-owner'
+      
+      
+
 
       // Assuming the backend responds with the newly created restaurant data including rest_Id
-      const { rest_Id } = response.data;
+      //const { rest_Id } = response.data;
+      console.log("Newly created restaurant Id:", rest_Id);
+     // setRest_Id(rest_Id);
       console.log("Newly created restaurant Id:", rest_Id);
 
       setSuccessMessage('Restaurant added successfully.');
@@ -82,6 +92,8 @@ const AddRestaurantItem = () => {
         description: '',
         phone: ''
       });
+
+      
     } catch (error) {
       console.error('Error adding restaurant:', error);
       setErrorMessage('Error adding restaurant. Please try again.');
@@ -90,14 +102,21 @@ const AddRestaurantItem = () => {
   };
 
   useEffect(() => {
-    if (success_stat) {
-      navigate('/add-food-item/${rest_Id}');
+    if (success_stat) {/* 
+      navigate(`/add-food-item/${rest_Id}`); */
+      navigate('/login-rest-owner');
+      console.log("rest_Idlllllll",rest_Id)
     }
-  }, [success_stat, navigate]);
+  }, [success_stat,rest_Id,navigate]);
 
   return (
+
     <div className='add-restaurant-item-page'>
+      <div className='add-restaurant-item-header'>
+        <h2>Sign Up as Restaurant Owner</h2>
+      </div>
       <form className="restaurant-item-form">
+       
       <label htmlFor="name">Name:</label>
         <input type="text" id="name" name="name" value={restaurantFormData.name} onChange={handleChange} required />
 

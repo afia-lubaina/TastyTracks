@@ -9,6 +9,7 @@ import axios from 'axios';
 
 const LocationPage = () => {
   const { location_name } = useParams();
+  console.log("Location name is "+ location_name);
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
 
   useEffect(() => {
@@ -18,9 +19,10 @@ const LocationPage = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get('http://localhost:8080/api/restaurant/'+location_name);
+      const response = await axios.get('http://localhost:8080/api/restaurant/'+'Dhanmondi');
       setFilteredRestaurants(response.data);
-      console.log("Get rest list "+ response.location_name);
+      console.log("Get rest list "+ response.data);
+      console.log("Get rest list "+ response.data.location_name);
     } catch (error) {
       console.error('Error fetching data:', error);
     }

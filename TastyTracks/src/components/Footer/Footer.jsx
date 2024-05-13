@@ -32,7 +32,7 @@ const Footer = () => {
             <ul>
                 <li>+880175778345</li>
                 <li>contact@TastyTracks.com</li>
-            <Link to='/add-food-item'>
+            <Link to='/add-food-item/1'>
             <li className='add-food-item'>Add Food Item</li>
           </Link>
           <Link to='/add-restaurant-item'>

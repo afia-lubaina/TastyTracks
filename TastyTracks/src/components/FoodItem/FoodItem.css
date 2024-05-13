@@ -8,6 +8,11 @@
     animation: fadeIn 1s;
 }
 
+.food-item:hover{
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+}
+
 .food-item-image{
     width: 45rem;
     height: 30rem;
@@ -35,12 +40,13 @@
 
 .food-item-name p{
     
-    font-size: 2rem;
-    font-weight: 500;
+    font-size: 2.5rem;
+    font-weight: 600;
     font-family: Outfit;
     white-space: nowrap; /* Prevent text from wrapping */
     overflow: hidden; /* Hide overflowing text */
     text-overflow: ellipsis;
+    pointer-events: none;
     
 }
 
@@ -103,5 +109,10 @@
     font-size: 2rem;
     font-family: Outfit;
 
+}
+
+.review{
+    text-decoration: underline;
+    cursor: pointer;
 }
 

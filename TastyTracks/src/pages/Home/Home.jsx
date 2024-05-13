@@ -7,6 +7,8 @@ import Footer from '../../components/Footer/Footer'
 
 const Home = () => {
 
+  
+
   const [category,setCategory]=useState("All");
   return (
     <div className='home-container'>

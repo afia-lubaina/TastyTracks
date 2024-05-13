@@ -21,12 +21,12 @@ const AddFoodItem = () => {
     image: null, 
     category: '',
     item: '',
-    rest_id: 1
+    rest_id: ''
   });
   const [showPopup, setShowPopup] = useState(false);
   const [successMessage, setSuccessMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
-
+  const [isVisible, setIsVisible] = useState(true);
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
@@ -44,8 +44,11 @@ const AddFoodItem = () => {
   };
 
   const { rest_Id } = useParams();
+
+  console.log("restaurant id  uuuuuuuuuuuuuuuuuuu"+rest_Id);
+
     const [restaurant, setRestaurant] = useState({});
-    console.log("restaurant id "+rest_Id);
+    console.log("restaurant id "+ rest_Id);
     
     useEffect(() => {
       fetchData(); // Call fetchData here
@@ -53,6 +56,7 @@ const AddFoodItem = () => {
   }, []);
   
 
+    
     const fetchData = async () => {
       try {
         const response = await axios.get(`http://localhost:8080/api/restaurant/getOne/${rest_Id}`);
@@ -75,10 +79,10 @@ const AddFoodItem = () => {
     e.preventDefault();
 
     // Check if any field is empty
-    if (Object.values(foodformData).some(value => value === '' || value === null)) {
+    /* if (Object.values(foodformData).some(value => value === '' || value === null)) {
       setShowPopup(true);
       return;
-    }
+    } */
 
     try {
       const formData = new FormData();
@@ -88,7 +92,9 @@ const AddFoodItem = () => {
       formData.append('image', foodformData.image);
       formData.append('category', foodformData.category);
       formData.append('item', foodformData.item);
-      formData.append('rest_id', 1);  
+      formData.append('rest_id', rest_Id);  
+
+      console.log("rasel ="+formData);
 
       var response = await axios.post('http://localhost:8080/api/food/save', formData, {
         headers: {
@@ -112,7 +118,7 @@ const AddFoodItem = () => {
         image: null, 
         category: '',
         item: '',
-        rest_id: 1
+        rest_id: ''
       });
       
     } catch (error) {
@@ -129,6 +135,8 @@ const AddFoodItem = () => {
 
   return (
     <div className='add-food-item-page'>
+
+      <div className='food-item-form-container'>
       <div className='restaurant-header'>
           <h2>{restaurant.name}</h2>
       </div>
@@ -156,6 +164,7 @@ const AddFoodItem = () => {
           <input type="text" id="category" name="category" value={foodformData.category} onChange={handleChange} required />
 
           <button type="submit" onClick={handleSubmit}>Add</button>
+     
         </form>
       )}
 
@@ -166,11 +175,11 @@ const AddFoodItem = () => {
         </div>
       )}
 
-      
+      </div>
       
       {imgUrls && <RestaurantHeader slides={imgUrls}/>}
       <ExploreMenu menu_category={menu_category} set_category={set_category} />
-      <CategorizedDisplay menu_category={menu_category} restaurant_id={rest_Id}/>
+      <CategorizedDisplay menu_category={menu_category} restaurant_id={rest_Id} isVisible={isVisible} isResVisible={false}/>
 
 
       {successMessage && <div className="success-message">{successMessage}</div>}

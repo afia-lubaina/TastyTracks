@@ -6,7 +6,7 @@ export const StoreContext = createContext(null);
 const StoreContextProvider = (props) => {
     const [foodList, setFoodList] = useState([]);
     const [cartItems, setCartItems] = useState({});
-    const [ratings, setRatings] = useState({});
+    const [ratings, setRatings] = useState(0);
 
     const addToCart = (rest_id,item) => {
         setCartItems((prevItems) => {
@@ -28,8 +28,9 @@ const StoreContextProvider = (props) => {
           });
     };
 
-    const updateRating = (itemId, newRating) => {
-        setRatings((prev) => ({ ...prev, [itemId]: newRating }));
+    const updateRating = (restId,item, newRating) => {
+        const key=`${restId}_${item}`;
+        setRatings((prev) => ({ ...prev, [key]: newRating }));
     };
 
     useEffect(() => {
@@ -45,8 +46,6 @@ const StoreContextProvider = (props) => {
             try {
                 var response = await axios.get('http://localhost:8080/api/food/all');
                 setFoodList(response.data);
-               // console.log("Get foodlist "+ response);
-               //console.log("Get foodlist "+ response.data.map((ix) => ix.rest_id));
             } catch (error) {
                 console.error('Error fetching food data:', error);
             }
@@ -57,7 +56,6 @@ const StoreContextProvider = (props) => {
  
 
     const contextValue = {
-
         foodList,
         cartItems,
         setCartItems,

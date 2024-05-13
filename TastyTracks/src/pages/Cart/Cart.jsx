@@ -1,11 +1,42 @@
-import React, { useContext } from 'react'
-import './Cart.css'
-import { StoreContext } from '../../context/StoreContext'
-
+import React, { useContext, useEffect, useState } from 'react';
+import './Cart.css';
+import { StoreContext } from '../../context/StoreContext';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const Cart = () => {
+  const { cartItems, removeFromCart } = useContext(StoreContext);
+  const [foodItems, setFoodItems] = useState([]);
+  const [isChecked,setIsChecked] = useState(false);
+  const [checkedItems, setCheckedItems] = useState([]);
+  const [currRestId, setCurrRestId] = useState(null);
 
-  const{cartItems, food_list, removeFromCart}= useContext(StoreContext);
+  const handleChange = (index,restId) => {
+    
+    if(currRestId!==null &&
+      restId !== currRestId){
+      alert("You can only order from one restaurant at a time");
+      console.log("Current rest id "+currRestId);
+    }
+    else{
+    setCheckedItems(prevState => {
+      const newState = [...prevState];
+      newState[index] = !newState[index];
+      return newState;
+    });
+  }
+};
+
+  useEffect(() => {
+    axios.get('http://localhost:8080/api/food/all')
+      .then(response => {
+        setFoodItems(response.data);
+        setCheckedItems(response.data.map(() => false));
+      })
+      .catch(error => {
+        console.error('Error fetching food items:', error);
+      });
+  }, []);
 
   return (
     <div className='cart'>
@@ -17,49 +48,35 @@ const Cart = () => {
           <p>Quantity</p>
           <p>Total</p>
           <p>Remove</p>
+          <p>Add to checkout</p>
         </div>
         <br/>
         <hr/>
-        {food_list.map((item,index)=>{
-          if(cartItems[item.id]>0){
-              return (
-                <div>
-                <div className='cart-items-title cart-items-item'>
-                    <img src={item.image} alt='' />
-                    <p>{item.name}</p>
-                    <p>{item.price}</p>
-                    <p>{cartItems[item.id]}</p>
-                    <p>Tk. {item.price*cartItems[item.id]}</p>
-                    <p onClick={()=>removeFromCart(item.id)} className='cross'>x</p>
-                </div>
-                <hr/>
-              </div>
-              )
-          }
-        })}
-      </div>
-      <div className='cart-bottom'>
-        <div className='cart-total'>
-          <h2>Cart Totals</h2>
-          <div>
-            <hr/>
-            <div className="cart-total-details">
-              <p>Subtotal</p>
-              <p>{0}</p>
-            </div>
-            <hr/>
-            <div className="cart-total-details">
-              <p>Delivery Fee</p>
-              <p>{0}</p>
-            </div>
-            <hr/>
-            <div className='cart-total-details'>
-              <b>Total</b>
-              <b>{0}</b>
-            </div>
-          </div>
-          <button>Proceed to Checkout</button>
+        {foodItems.map((item, index) => {
+  const cartItemId = `${item.rest_id}_${item.item}`; // Assuming item.id uniquely identifies each item
+
+  if (cartItems[cartItemId] > 0) {
+    return (
+      <div key={index}>
+        <div className='cart-items-title cart-items-item'>
+          <img src={"http://localhost:8080/api/food/image/"+item.item+"/"+item.rest_id} alt=""/>
+          <p>{item.item}</p>
+          <p>{item.price}</p>
+          <p>{cartItems[cartItemId]}</p>
+          <p>Tk. {item.price * cartItems[cartItemId]}</p>
+          <p onClick={() => removeFromCart(cartItemId)} className='cross'>x</p>
+          <Link to={`/checkout/${item.item}/${item.rest_id}/1`}>
+          <button onClick={() => handleChange(index,item.rest_id)}>Order</button>
+          </Link>
         </div>
+        <hr/>
+      </div>
+    );
+  }
+})}
+
+</div>
+      <div className='cart-bottom'>
         <div className="cart-promocode"></div>
           <div>
             <p>If you have a promocode, enter it here.</p>
@@ -70,7 +87,7 @@ const Cart = () => {
           </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default Cart
+export default Cart;

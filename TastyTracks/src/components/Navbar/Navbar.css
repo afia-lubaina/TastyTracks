@@ -84,17 +84,6 @@
 }
 
 
-.navbar-right .dot{
-    position: absolute;
-    min-width: 10px;
-    min-height: 10px;
-    background-color: rgb(225, 74, 99);
-    border-radius: 5px;
-    top: -8px;
-    right: -8px;
-    z-index: 2001;
-}
-
 @media (max-width: 1050px){
     .navbar .logo{
         width: 100px;

@@ -1,0 +1,58 @@
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000; /* Ensure the popup is above other elements */
+  }
+  
+  .popup p {
+    margin: 0;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  .update-food-item-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .update-food-item-form label {
+    font-size: 1rem;
+  }
+  
+  .update-food-item-form input[type="text"],
+  .update-food-item-form input[type="file"] {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .update-food-item-form button[type="submit"] {
+    padding: 10px 20px;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .update-food-item-form button[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+  
+  .popup img {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 20px;
+    cursor: pointer;
+  }
+
+  

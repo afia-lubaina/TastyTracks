@@ -2,6 +2,13 @@
   width:80%;
   margin: auto;
   }
+
+  .add-restaurant-item-header{
+    margin-top: 7rem;;
+    color: #333;
+    font-weight: 200px;
+    font-size: 3rem;
+  }
   
   .restaurant-item-form {
     display: flex;

@@ -6,7 +6,8 @@
 .add-food-item-header{
   margin-top: 20px;
   font-size: 3rem;
-  color: rgb(225, 74, 99)
+  color: rgb(225, 74, 99);
+  text-align: center;
 }
 
 
@@ -15,23 +16,28 @@
   flex-direction: column;
   z-index: 100;
   gap: 20px;
-  max-width: 60rem;
-  max-height: 50rem;
+  width: 100rem;
+  height: 60rem;
   margin-top: 30px;
   padding: 30px;
+  left:50rem;
   border: rgb(225, 74, 99) solid 1px;
 }
 
 .food-item-form label {
   font-size: 1.2rem;
+  font-size: 2rem;
+  font-family: Outfit;
 }
 
 .food-item-form input[type="text"],
 .food-item-form input[type="file"] {
   padding: 10px;
-  font-size: 1.1rem;
+  font-size: 1.5rem;
+  font-family: Outfit;
   border: 1px solid #ccc;
   border-radius: 5px;
+  height: 4rem;
 }
 
 .food-item-form button[type="submit"] {
@@ -104,4 +110,10 @@
   margin-top: 7rem;
   margin-bottom: 2rem;
   animation: fadeIn 1s;
+  }
+
+  .food-item-form-container{
+    display: grid;
+    justify-content: center;
+    align-items: center;
   }

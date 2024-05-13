@@ -1,5 +1,6 @@
 .restaurant-food-item{
-    width:100%;
+    height: 50 rem;
+    width: 45rem;
     margin: auto;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 15px;
@@ -7,13 +8,14 @@
     animation: fadeIn 1s;
 }
 
-
+.restaurant-food-item:hover{
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+}
 
 .restaurant-food-item-info{
     padding: 30px;
 }
-
-
 
 .restaurant-food-item-name{
     display: flex;
@@ -24,20 +26,24 @@
 
 
 .restaurant-food-item-name p{
-    font-size: 5rem;
-    font-weight: 500;
+    font-size: 2.5rem;
+    font-weight: 600;
     font-family: Outfit;
+    white-space: nowrap; /* Prevent text from wrapping */
+    overflow: hidden; /* Hide overflowing text */
+    text-overflow: ellipsis;
 }
 
 .restaurant-food-item-desc{
-    font-size: 1.8rem;
     font-weight: 300;
     margin-bottom: 20px;
     font-family: Outfit;
+    font-size: 2rem; 
 }
 
 .restaurant-food-item-image-container{
     position: relative;
+    border-color: antiquewhite;
 
 }
 .restaurant-food-item-image-container .add{
@@ -46,6 +52,8 @@
     bottom: 15px;
     right: 15px;
     cursor: pointer;
+    border: 2px solid transparent; 
+    transition: border-color 0.3s; 
     border-radius: 50%;
     border: 2px solid transparent; 
     transition: border-color 0.3s; 
@@ -86,6 +94,59 @@
 }
 
 .restaurant-food-item-image {
-    width: 40rem;
+    width: 45rem;
     height: 30rem;
+    object-fit: cover;
+    border-radius: 15px;
+}
+.restaurant-food-item-restaurant{
+    
+    font-size: 2rem;
+    font-family: Outfit;
+}
+
+
+
+.buttons-container{
+    margin-top: 1rem;
+    margin-left: 8rem;
+    display: flex;
+   flex-direction: row;
+   gap: 70px;
+   margin-bottom: 30px;
+
+}
+
+.update-button{
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: rgb(225, 74, 99);
+    color: white;
+    font-family: Outfit;
+    font-size: 1.7rem;
+    cursor: pointer;
+    
+    border-radius: 10px;
+}
+
+.update-button:hover{
+   box-shadow: 0 0 40px rgba(0, 0, 0, 0.4)
+}
+
+.delete-button{
+    margin-left: 1rem;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: rgb(225, 74, 99);
+    color: white;
+    font-family: Outfit;
+    font-size: 1.7rem;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.delete-button:hover{
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.4)
 }

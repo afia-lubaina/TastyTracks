@@ -12,6 +12,35 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
     margin-top:60px ;
-    gap: 50px;
+    gap: 60px;
     row-gap: 50px;
 }
+
+.food-search{
+    display: grid;
+    justify-content: center;
+    margin-top: 30px;
+   
+}
+
+.food-search-header{
+    color: rgb(225, 74, 99);
+}
+  
+  .food-display input[type='text'] {
+
+    padding: 10px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    width: 30rem;
+    height: 4rem;
+    margin-left: 3rem;
+    font-size: 29px;
+    border-radius: 20px;
+
+  }
+  
+
+  
+  /* Add more styles as needed */
+  

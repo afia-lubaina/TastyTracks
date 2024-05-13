@@ -13,6 +13,7 @@ import axios from 'axios';
 const Restaurant = () => {
     const { restaurant_id } = useParams();
     const [restaurant, setRestaurant] = useState({});
+    
   
 
     useEffect(() => {
@@ -55,7 +56,7 @@ const Restaurant = () => {
       {imgUrls && <RestaurantHeader slides={imgUrls}/>}
       <ReservationForm onSubmit={handleReservationSubmit} />
       <ExploreMenu menu_category={menu_category} set_category={set_category} />
-      <CategorizedDisplay menu_category={menu_category} restaurant_id={restaurant_id}/>
+      <CategorizedDisplay menu_category={menu_category} restaurant_id={restaurant_id} isVisible={false} isResVisible={true}/>
     </div>
   )
 }

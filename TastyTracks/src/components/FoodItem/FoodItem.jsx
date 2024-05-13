@@ -3,12 +3,15 @@ import "./FoodItem.css";
 import { assets } from "../../assets/assets/assets";
 import { StoreContext } from "../../context/StoreContext";
 import FoodRating from "../FoodRating/FoodRating";
+import { Link } from "react-router-dom";
+import StaticRating from "../StaticRating/StaticRating";
 
 
 const FoodItem = ({ rest_id, item, category, description, img_url, price, rest_name }) => {
   const { cartItems, addToCart, removeFromCart } = useContext(StoreContext);
-console.log("food item "+rest_id);
-
+  console.log("food item "+rest_id);
+  
+ const restId = rest_id;
 
   return (
     <div className="food-item">
@@ -27,13 +30,18 @@ console.log("food item "+rest_id);
       <div className="food-item-info">
         <div className="food-item-name">
           <p>{item}</p>
-          <FoodRating itemId={rest_id} />
+          <StaticRating restId={rest_id} item={item} />
         </div>
         <p className="food-item-restaurant">{rest_name}</p>
         <p className="food-item-desc">{description}</p>
         <p className="food-item-price">Tk. {price}</p>
+        
+        <Link to={`/api/review/get/${item}/${restId}`}>
+        <p className="review">review</p>
+        </Link>
       </div>
     </div>
+   
   );
 };
 

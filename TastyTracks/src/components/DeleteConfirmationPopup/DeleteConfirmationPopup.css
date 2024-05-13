@@ -1,0 +1,63 @@
+.delete-confirmation-popup {
+    position: fixed;
+    z-index: 2001;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #00000090;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .delete-confirmation-popup-container {
+    min-width: 25rem;
+    min-height: 20rem;
+    color: #808080;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding: 5rem;
+    border-radius: 8px;
+    animation: fadeIn 0.5s;
+    font-family: Outfit;
+    font-size: 1.5rem;
+  }
+  
+  .delete-confirmation-popup-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 2rem;
+    color: black;
+  }
+  
+  .delete-confirmation-popup-title img {
+    margin-top: -100px;
+    width: 16px;
+    margin-right: -20px;
+    cursor: pointer;
+    
+  }
+  
+  .delete-confirmation-popup-buttons {
+    margin-top: 10px;
+    margin-left: 6rem;
+    display: flex;
+    gap: 70px;
+  }
+  
+  .delete-confirmation-popup-buttons button {
+    padding: 10px;
+    border: none;
+    width:6rem;
+    border-radius: 4px;
+    background-color: rgb(225, 74, 99);
+    color: white;
+    font-family: Outfit;
+    font-size: 1.7rem;
+    cursor: pointer;
+  }
+  
