@@ -5,11 +5,16 @@ import FoodRating from '../../components/FoodRating/FoodRating';
 import axios from 'axios';
 import { StoreContext } from '../../context/StoreContext';
 import ReviewContainer from '../../components/ReviewContainer/ReviewContainer';
+import LoginPopup from '../../components/LoginPopup/LoginPopup';
+import { useEffect } from 'react';
+
 
 const ReviewPage = () => {
   const { item, restId } = useParams();
   const [reviewText, setReviewText] = useState('');
   const { ratings } = useContext(StoreContext);
+  const [userId,setUserId]=useState(null);
+  
 
   console.log("item "+item);
   console.log("restIdpppppppppp000000"+restId);
@@ -19,12 +24,31 @@ const ReviewPage = () => {
   /* console.log("item "+item);
   console.log("restId "+restId); */
 
-  const token =localStorage.getItem('token')
-  console.log("token "+token);
+  
+
+
+ /*  useEffect(() => {
+    if (token !== null) {
+      // Fetch userId from backend when token is not null
+      const fetchUserId = async () => {
+        try {
+          const response = await axios.get(`http://localhost:8080/api/user/${token}`);
+          setUserId(response.data);
+          console.log("response......data"+ response.data);
+        } catch (error) {
+          console.error('Error fetching user data:', error);
+        }
+      };
+
+      fetchUserId();
+    }
+  }, [token]);  */
   
 
   const handleSubmitReview = async (e) => {
     e.preventDefault();
+
+    /* if(token === null){ */
 
     // Check if review text is empty
     if (reviewText.trim() === '') {
@@ -32,14 +56,29 @@ const ReviewPage = () => {
       setTimeout(() => setErrorMessage(''), 2000); // Hide after 2 seconds
       return;
     }
+    let token = await localStorage.getItem('token')
+    if(token != null) {
+      token = JSON.parse(token)
+    }
+    console.log("token "+token);
 
+
+      
+
+      try {
+        const response = await axios.get(`http://localhost:8080/api/user/${token}`);
+        setUserId(response.data)
+        console.log("response.data"+response.data)
+      } catch (error) {
+        console.error('Error fetching search results:', error);
+      }
       //review_id, item, rating, rest_id, review, time, user_id
 
     try {
 
       const formData = {
-        user_id: 1,
-        restId: 1,
+        user_id: userId,
+        restId: restId,
         item: item, 
         review: reviewText,
         rating: 3,
@@ -75,6 +114,7 @@ const ReviewPage = () => {
 
   return (
     <div className='review-page'>
+      {/* {token === null && <LoginPopup setShowLogin={() => {}} />} */}
       <div className='review-img-write'>
         <img className="review-food-item-image" src={`http://localhost:8080/api/food/image/${item}/${restId}`} alt="" />
         <div className='write-review'>

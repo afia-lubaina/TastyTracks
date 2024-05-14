@@ -58,8 +58,11 @@ const AddRestaurantItem = () => {
       formData.append('address', restaurantFormData.address);
       formData.append('description', restaurantFormData.description);
       formData.append('phone', restaurantFormData.phone);
-
-
+      
+      formData.forEach((value, key) => {
+        console.log(`${key}: ${value}`);
+      });
+      
       const response = await axios.post('http://localhost:8080/api/restaurant/register', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
@@ -132,7 +135,7 @@ const AddRestaurantItem = () => {
         <label htmlFor="address">Address:</label>
         <input type="text" id="address" name="address" value={restaurantFormData.address} onChange={handleChange} required />
 
-        <label htmlFor="description">Description:</label>
+        <label htmlFora="description">Description:</label>
         <input type="text" id="description" name="description" value={restaurantFormData.description} onChange={handleChange} required />
 
         <label htmlFor="phone">Phone:</label>

@@ -35,12 +35,16 @@ class UserService{
         return axios.post(API_URL + "/api/restaurant/login", {email,password});
     }
 
-    save(UserFormData){
+    save(formData){
         return axios.post(API_URL + "/api/user/register", formData);
     }
 
     save(formData){
         return axios.post(API_URL + "/api/reservation/save", formData);
+    }
+
+    save(formData){
+        return axios.post(API_URL + "/api/order/save", formData);
     }
 
 

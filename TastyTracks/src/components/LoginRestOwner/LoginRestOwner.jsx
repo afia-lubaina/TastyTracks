@@ -16,7 +16,6 @@ const LoginRestOwner = () => {
       console.log(response.data);
       // Store the token in local storage
       localStorage.setItem('token', JSON.stringify(response.data));
-
       console.log(localStorage.getItem('token'));
       /* const token = JSON.parse(localStorage.getItem("token"));
       console.log("token:", token); */

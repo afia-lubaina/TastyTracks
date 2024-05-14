@@ -54,3 +54,13 @@
     align-items: center;
     height: 200px; /* Adjust as needed */
 }
+
+.order-grid-item button{
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    background-color: rgb(225, 74, 99);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}

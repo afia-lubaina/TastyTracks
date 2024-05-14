@@ -35,18 +35,36 @@ const CheckOutPage = () => {
 
   // Format date and time using toLocaleString
   const formattedOrderTime = orderTime.toLocaleString('en-US', { dateStyle: 'short', timeStyle: 'short' });
-  const formattedDeliveryTime = deliveryTime.toLocaleString('en-US', { dateStyle: 'short', timeStyle: 'short' });
+  const formattedDeliveryTime = deliveryTime.toISOString().split('.')[0];
 
 
-  const formData = new FormData();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
+  const formData = {
+    
+    foodItem: item,
+    restId: parseInt(restId),
+    userId: 1,
+    deliveryTime: formattedDeliveryTime,
+    paymentStatus: "Pending"
+  }
 
+  console.log(formData)
 
+  try {
+    const response = await axios.post(`http://localhost:8080/api/order/save`, formData, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+    console.log("Response data ", response.data);
+  } catch (error) {
+    console.error('Error saving order:', error);
+  }
 
-
-
-
-
+}
+  
 
   
   return (
@@ -85,6 +103,10 @@ const CheckOutPage = () => {
           <div className='order-grid-item'>
             <p className='item-caption'>Delivery Status:</p>
             <p>Pending.</p>
+            <button type="submit" onClick={handleSubmit}>Confirm Order</button>
+          </div>
+          <div>
+           
           </div>
         </div>
       </div>

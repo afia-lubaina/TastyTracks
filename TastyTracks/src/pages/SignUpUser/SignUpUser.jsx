@@ -7,16 +7,16 @@ const SignUpUser = () => {
   const navigate = useNavigate();/* 
   const [rest_Id, setRest_Id] = useState(null); */
 
-  //user_id, acc_created, address, email, first_name, gender, img_url, last_name, password, phone
+  //user_id, acc_created, address, email, firstName, gender, image, lastName, password, phone
 
   const [UserFormData, setUserFormData] = useState({
-    acc_created:'',
+    
     address:'',
     email:'',
-    first_name:'',
+    firstName:'',
     gender:'',
     image:null,
-    last_name:'',
+    lastName:'',
     password:'',
     phone:''
   });
@@ -54,16 +54,15 @@ const SignUpUser = () => {
     // }
 
 
-    //user_id, acc_created, address, email, first_name, gender, img_url, last_name, password, phone
+    //user_id, acc_created, address, email, firstName, gender, image, lastName, password, phone
     try {
       const formData = new FormData();
-      formData.append('acc_created', UserFormData.acc_created);
       formData.append('address', UserFormData.address);
       formData.append('email', UserFormData.email);
-      formData.append('first_name', UserFormData.first_name);
+      formData.append('firstName', UserFormData.firstName);
       formData.append('gender', UserFormData.gender);
       formData.append('image',UserFormData.image);
-      formData.append('last_name', UserFormData.last_name);
+      formData.append('lastName', UserFormData.lastName);
       formData.append('password', UserFormData.password);
       formData.append('phone', UserFormData.phone);
       
@@ -80,7 +79,7 @@ const SignUpUser = () => {
       
       /* 
       setRest_Id(response.data); */
-      localStorage.setItem('token', response.data);
+      localStorage.setItem('token', Json.stringify(response.data));
       console.log("response.data",response.data)
       console.log(localStorage.getItem('token'))
       //window.location.href = '/login-rest-owner'
@@ -91,13 +90,13 @@ const SignUpUser = () => {
 
       // Reset form fields
       setUserFormData({
-        acc_created:'',
+        
         address:'',
         email:'',
-        first_name:'',
+        firstName:'',
         gender:'',
         image:null,
-        last_name:'',
+        lastName:'',
         password:'',
         phone:''
         });
@@ -124,11 +123,11 @@ const SignUpUser = () => {
       <h2>Sign Up as User</h2>
     </div>
     <form className="sign-up-form" onSubmit={handleSubmit}>
-      <label htmlFor="first_name">First Name:</label>
-      <input type="text" id="first_name" name="first_name" value={UserFormData.first_name} onChange={handleChange} required />
+      <label htmlFor="firstName">First Name:</label>
+      <input type="text" id="firstName" name="firstName" value={UserFormData.firstName} onChange={handleChange} required />
 
-      <label htmlFor="last_name">Last Name:</label>
-      <input type="text" id="last_name" name="last_name" value={UserFormData.last_name} onChange={handleChange} required />
+      <label htmlFor="lastName">Last Name:</label>
+      <input type="text" id="lastName" name="lastName" value={UserFormData.lastName} onChange={handleChange} required />
 
       <label htmlFor="email">Email:</label>
       <input type="email" id="email" name="email" value={UserFormData.email} onChange={handleChange} required />
@@ -150,10 +149,8 @@ const SignUpUser = () => {
       <label htmlFor="phone">Phone:</label>
       <input type="text" id="phone" name="phone" value={UserFormData.phone} onChange={handleChange} required />
 
-      <label htmlFor="acc_created">Account Created:</label>
-      <input type="date" id="acc_created" name="acc_created" value={UserFormData.acc_created} onChange={handleChange} required />
 
-      <label htmlFor="image">Upload Image:</label>
+      <label htmlFor="image">Upload image:</label>
       <input type="file" id="image" name="image" onChange={handleChange} required />
 
       <button type="submit">Sign Up</button>

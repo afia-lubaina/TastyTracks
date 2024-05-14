@@ -11,11 +11,13 @@ const LoginUser = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:8080/login', { email, password });
+      const response = await axios.post('http://localhost:8080/api/user/login', { email, password });
 
+      console.log("response daa"+response.data);
+      console.log(response.data);
       // Store the token in local storage
-      localStorage.setItem('token', JSON.stringify(response.data.token));
-      localStorage.setItem('user', JSON.stringify(response.data.user));
+      localStorage.setItem('token', JSON.stringify(response.data));
+      console.log(localStorage.getItem('token'));
 
       window.location.href = '/';
     } catch (error) {
