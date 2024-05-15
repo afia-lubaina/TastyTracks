@@ -1,29 +1,29 @@
 /* Users.css */
 
-.restaurant-page{
+.show-admin-reservation-page{
     margin: 0 auto;
     width: 80%;
     justify-content: center;
     align-items: center;
-    
 }
 
-.restaurant-page h1{
+.show-admin-reservation-page h1{
     color: black;
     margin-top: 3rem;
     margin-bottom: 3rem;
     font-size: 3.5rem;
     text-align: center;
+    
 
 }
 
-.restaurant-container { display: flex;
+.show-admin-reservation-container { display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
   }
   
-  .restaurant-card {
+  .show-admin-reservation-card {
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 20px;
@@ -34,21 +34,21 @@
     font-size: 1.5rem;
   }
   
-  .restaurant-card h2 {
+  .show-admin-reservation-card h2 {
     margin-top: 0;
   }
   
-  .restaurant-card p {
+  .show-admin-reservation-card p {
     margin: 5px 0;
   }
   
-  .restaurant-card:hover {
+  .show-admin-reservation-card:hover {
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     transform: translateY(-2px);
     transition: all 0.3s ease;
   }
 
-  .restaurant-card button {
+  .show-admin-reservation-card button {
     padding: 10px 20px;
     font-size: 1.2rem;
     background-color: rgb(225, 74, 99);

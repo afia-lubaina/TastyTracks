@@ -11,6 +11,9 @@
     margin-top: 10rem;
     padding: 20px;
     border: rgb(225, 74, 99) solid 1px;
+    width: 100rem;
+    height: 20rem
+
     /* Adjust height and width */
      /* Change this value as needed */
   }
@@ -29,8 +32,12 @@
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    height: 3rem;
+    font-size: 1.5rem;
   }
-  
+  .login-form label{
+    font-size: 1.2rem;
+  }
   .login-form button {
     padding: 10px 20px;
     font-size: 1.2rem;

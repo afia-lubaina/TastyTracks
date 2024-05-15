@@ -26,6 +26,7 @@ import AdminPage from './pages/AdminPages/AdminPage'
 import Users from './pages/Users/Users'
 import ShowRestaurants from './pages/ShowRestaurants/ShowRestaurants'
 import ShowOrders from './pages/ShowOrders/ShowOrders'
+import ShowAdminReservations from './pages/ShowAdminReservations/ShowAdminReservations'
 
 
 
@@ -57,8 +58,9 @@ const App = () => {
         <Route path='login-admin' element={<LoginAdmin/>} />
         <Route path='admin-page' element={<AdminPage/>} />
         <Route path='/users' element={<Users/>} />
-        <Route path='/restaurant-owners' element={ShowRestaurants} />
+        <Route path='/restaurant-owners' element={<ShowRestaurants/>} />
         <Route path='/orders' element={<ShowOrders/>} />
+        <Route path='reservations' element={<ShowAdminReservations/>} />
 
       </Routes>
     </div>

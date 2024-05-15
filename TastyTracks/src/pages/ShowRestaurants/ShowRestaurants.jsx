@@ -18,16 +18,27 @@ const ShowRestaurants = () => {
     fetchRestaurants();
   }, []);
 
+/*   private long rest_Id;
+  private String name=" ";
+  private  String email=" ";
+  private String img_url;
+  private String password=" ";
+  private String address;
+  private String description;
+  private String phone;
+ */
   return (
     <div className='restaurant-page'>
-      <h1>Restaurants</h1>
+      <h1>Restaurants Owners</h1>
       <div className="restaurant-container">
         {restaurants.map(restaurant => (
           <div key={restaurant.id} className="restaurant-card">
-            <h2>{restaurant.restaurantName}</h2>
+            <h2>{restaurant.name}</h2>
             <p>Email: {restaurant.email}</p>
             <p>Address: {restaurant.address}</p>
+            <p>Phone: {restaurant.description}</p>
             <p>Phone: {restaurant.phone}</p>
+            <button>Remove Restaurant</button>
             {/* Add more details as needed */}
           </div>
         ))}

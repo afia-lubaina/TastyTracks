@@ -27,6 +27,26 @@ const RestaurantFoodItem = ({ rest_id, item, category, description, img_url, pri
       console.log("Please login to add items to the cart.");
     }
   };
+
+  
+  const handleAddCartClick = () => {
+    if (userType === 'user') {
+        addToCart(rest_id, item);
+      
+    } else {
+      console.log("Please login to add items to the cart.");
+    }
+  };
+
+  const handleRemoveCartClick = () => {
+    if (userType === 'user') {
+        removeFromCart(rest_id, item);
+      
+    } else {
+      console.log("Please login to add items to the cart.");
+    }
+  }
+
   
   const handleDeleteFood = async () => {
     try {
@@ -82,15 +102,17 @@ const RestaurantFoodItem = ({ rest_id, item, category, description, img_url, pri
     <div className="restaurant-food-item">
       <div className="restaurant-food-item-image-container">
         <img className="restaurant-food-item-image" src={"http://localhost:8080/api/food/image/" + item + "/" + rest_id} alt="" />
-        {isResVisible && (!cartItems[`${rest_id}_${item}`] ? (
-          <img className="add" onClick={handleCartClick} src={assets.add_icon_white} alt="" />
-        ) : (
-          <div className="food-item-counter">
-            <img onClick={handleCartClick} src={assets.remove_icon_red} alt="" />
-            <p>{cartItems[`${rest_id}_${item}`]}</p>
-            <img onClick={handleCartClick} src={assets.add_icon_green} alt="" />
-          </div>
-        ))}
+        {isResVisible && !cartItems[`${rest_id}_${item}`] && (
+  <img className="add" onClick={handleCartClick} src={assets.add_icon_white} alt="" />
+)}
+
+{isResVisible && cartItems[`${rest_id}_${item}`] && (
+  <div className="food-item-counter">
+    <img onClick={handleRemoveCartClick} src={assets.remove_icon_red} alt="" />
+    <p>{cartItems[`${rest_id}_${item}`]}</p>
+    <img onClick={handleAddCartClick} src={assets.add_icon_green} alt="" />
+  </div>
+)}
       </div>
       <div className="restaurant-food-item-info">
         <div className="restaurant-food-item-name">
