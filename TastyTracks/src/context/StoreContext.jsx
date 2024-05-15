@@ -7,6 +7,7 @@ const StoreContextProvider = (props) => {
     const [foodList, setFoodList] = useState([]);
     const [cartItems, setCartItems] = useState({});
     const [ratings, setRatings] = useState(0);
+    const [userType, setUserType] = useState(null);
 
     const addToCart = (rest_id,item) => {
         setCartItems((prevItems) => {
@@ -53,6 +54,15 @@ const StoreContextProvider = (props) => {
         fetchFoodData();
     }, []);
 
+
+    useEffect(() => {
+        const fetchUserType = async () => {
+            let userType = await localStorage.getItem('user');
+            setUserType(userType);
+        };
+        fetchUserType();
+    }, []);
+
  
 
     const contextValue = {
@@ -62,7 +72,8 @@ const StoreContextProvider = (props) => {
         ratings,
         updateRating,
         addToCart,
-        removeFromCart
+        removeFromCart,
+        userType,
     };
 
     return (

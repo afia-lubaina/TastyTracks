@@ -1,0 +1,46 @@
+.admin-page{
+    margin: 0 auto;
+    width: 80%;
+}
+
+
+.admin-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .admin-option:hover{
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+  }
+
+  .admin-option h2{
+    margin-top: 2rem;
+    font-size: 2rem;
+    font-family: Outfit;
+  }
+
+  
+  
+  .admin-option {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 6rem;
+    width: 40rem;
+    height:10rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .admin-option h2 {
+    margin-bottom: 10px;
+  }
+  
+  .admin-option p {
+    color: #666;
+  }
+  

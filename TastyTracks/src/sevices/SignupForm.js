@@ -47,6 +47,10 @@ class UserService{
         return axios.post(API_URL + "/api/order/save", formData);
     }
 
+    save(formData){
+        return axios.post(API_URL + "/api/order/save", formData);
+    }
+
 
 
 

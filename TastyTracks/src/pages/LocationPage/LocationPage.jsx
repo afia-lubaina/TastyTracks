@@ -17,9 +17,11 @@ const LocationPage = () => {
     fetchData();
   }, []);
 
+
+
   const fetchData = async () => {
     try {
-      const response = await axios.get('http://localhost:8080/api/restaurant/'+'Dhanmondi');
+      const response = await axios.get(`http://localhost:8080/api/restaurant/location/${location_name}`);
       setFilteredRestaurants(response.data);
       console.log("Get rest list "+ response.data);
       console.log("Get rest list "+ response.data.location_name);

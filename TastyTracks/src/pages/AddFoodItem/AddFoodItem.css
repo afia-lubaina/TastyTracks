@@ -3,6 +3,7 @@
   width: 80%;
 }
 
+
 .add-food-item-header{
   margin-top: 20px;
   font-size: 3rem;
@@ -117,3 +118,65 @@
     justify-content: center;
     align-items: center;
   }
+
+.rest-buttons{
+  display: flex;
+}
+
+
+.show-orders button{
+  background: transparent;
+    font-size: 1rem;
+    color:rgb(83, 83, 83);
+    border: 1px solid rgb(225, 74, 99);
+    padding: 20px 40px;
+    border-radius: 50px;
+    transform: 0.3s;
+    font-size: 1.5rem;
+    margin-top: 20px;
+    margin-left: 34rem;
+}
+
+.show-orders button:hover{
+  background-color: rgb(206, 195, 197);
+}
+
+.show-reservations button{
+  background: transparent;
+    font-size: 1rem;
+    color:rgb(83, 83, 83);
+    border: 1px solid rgb(225, 74, 99);
+    padding: 20px 40px;
+    border-radius: 50px;
+    transform: 0.3s;
+    font-size: 1.5rem;
+    margin-top: 20px;
+    margin-left: 2rem;
+
+}
+
+.show-reservations button:hover{
+  background-color: rgb(206, 195, 197);
+}
+
+.REST-success-message,
+.REST-error-message {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  border-radius: 5px;
+    text-align: center;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.REST-success-message {
+  background-color: #2ecc71;
+  color: white;
+}
+
+.REST-error-message {
+  background-color: #e74c3c;
+  color: white;
+}

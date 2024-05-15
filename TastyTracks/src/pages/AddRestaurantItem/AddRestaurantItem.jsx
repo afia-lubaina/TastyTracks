@@ -70,7 +70,8 @@ const AddRestaurantItem = () => {
       });
       setRest_Id(response.data);
       localStorage.setItem('token', response.data.token);
-      //window.location.href = '/login-rest-owner'
+      localStorage.setItem('user','restaurant');
+      window.location.href = '/login-rest-owner'
       
       
 

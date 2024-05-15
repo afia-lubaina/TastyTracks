@@ -6,13 +6,27 @@ import FoodRating from "../FoodRating/FoodRating";
 import axios from 'axios';
 import DeleteConfirmationPopup from "../DeleteConfirmationPopup/DeleteConfirmationPopup";
 import UpdateFoodItemForm from "../UpdateFoodItemForm/UpdateFoodItemForm";
-
+import { Link } from "react-router-dom";
 
 const RestaurantFoodItem = ({ rest_id, item, category, description, img_url, price, rest_name, isVisible, isResVisible }) => {
   const { cartItems, addToCart, removeFromCart } = useContext(StoreContext);
   const [isDeleted, setIsDeleted] = useState(false);
   const [showDeletePopup, setShowDeletePopup] = useState(false);
   const [showUpdateForm, setShowUpdateForm] = useState(false);
+  const { userType } = useContext(StoreContext); 
+
+
+  const handleCartClick = () => {
+    if (userType === 'user') {
+      if (!cartItems[`${rest_id}_${item}`]) {
+        addToCart(rest_id, item);
+      } else {
+        removeFromCart(rest_id, item);
+      }
+    } else {
+      console.log("Please login to add items to the cart.");
+    }
+  };
   
   const handleDeleteFood = async () => {
     try {
@@ -69,12 +83,12 @@ const RestaurantFoodItem = ({ rest_id, item, category, description, img_url, pri
       <div className="restaurant-food-item-image-container">
         <img className="restaurant-food-item-image" src={"http://localhost:8080/api/food/image/" + item + "/" + rest_id} alt="" />
         {isResVisible && (!cartItems[`${rest_id}_${item}`] ? (
-          <img className="add" onClick={() => addToCart(rest_id, item)} src={assets.add_icon_white} alt="" />
+          <img className="add" onClick={handleCartClick} src={assets.add_icon_white} alt="" />
         ) : (
           <div className="food-item-counter">
-            <img onClick={() => removeFromCart(rest_id, item)} src={assets.remove_icon_red} alt="" />
+            <img onClick={handleCartClick} src={assets.remove_icon_red} alt="" />
             <p>{cartItems[`${rest_id}_${item}`]}</p>
-            <img onClick={() => addToCart(rest_id, item)} src={assets.add_icon_green} alt="" />
+            <img onClick={handleCartClick} src={assets.add_icon_green} alt="" />
           </div>
         ))}
       </div>
@@ -87,6 +101,12 @@ const RestaurantFoodItem = ({ rest_id, item, category, description, img_url, pri
         <p className="restaurant-food-item-desc">{description}</p>
         <p className="restaurant-food-item-price">Tk. {price}</p>
       </div>
+      {!isVisible &&(
+        <Link to={`/api/review/get/${item}/${rest_id}`}>
+        <p className="review">review</p>
+        </Link>
+      )
+      }
       {isVisible && (
         <div className="buttons-container">
           <button className="delete-button" onClick={handleDeleteConfirmation}>Delete Item</button>

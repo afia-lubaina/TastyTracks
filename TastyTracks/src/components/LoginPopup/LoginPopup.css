@@ -12,13 +12,13 @@
 .login-popup-container {
     place-self: center;
     min-width: 50rem;
-    min-height: 30rem;
+    min-height: 20rem;
     color: #808080;
     background-color: white;
     display: flex;
     flex-direction: column;
     gap: 25px;
-    padding: 5rem;
+    padding: 3rem;
     border-radius: 8px;
     animation: fadeIn 0.5s;
     font-family: Outfit;

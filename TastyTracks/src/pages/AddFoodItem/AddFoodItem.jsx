@@ -7,7 +7,7 @@ import ExploreMenu from '../../components/ExploreMenu/ExploreMenu';
 import CategorizedDisplay from '../../components/CategorizedDisplay/CategorizedDisplay';
 import ReservationForm from '../../components/ReservationForm/ReservationForm';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 
 const AddFoodItem = () => {
@@ -27,6 +27,29 @@ const AddFoodItem = () => {
   const [successMessage, setSuccessMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [isVisible, setIsVisible] = useState(true);
+  const [restaurant, setRestaurant] = useState({});
+  const [userType, setUserType] = useState(null);
+
+  useEffect(() => {
+    const fetchUserId = async () => {
+      let token = await localStorage.getItem('token');
+      let userType = await localStorage.getItem('user');
+      console.log("Inside Review Page User Type:", userType);
+      setUserType(userType);
+      if (token !== null) {
+        token = JSON.parse(token);
+        try {
+          const response = await axios.get(`http://localhost:8080/api/user/${token}`);
+          setUserId(response.data);
+          console.log("User ID:", response.data);
+        } catch (error) {
+          console.error('Error fetching user data:', error);
+        }
+      }
+    };
+
+    fetchUserId();
+  }, []); 
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
@@ -44,29 +67,31 @@ const AddFoodItem = () => {
   };
 
   const { rest_Id } = useParams();
+  const restId = rest_Id;
+  const id=rest_Id;
+
 
   console.log("restaurant id  uuuuuuuuuuuuuuuuuuu"+rest_Id);
-
-    const [restaurant, setRestaurant] = useState({});
     console.log("restaurant id "+ rest_Id);
     
     useEffect(() => {
-      fetchData(); // Call fetchData here
+      fetchRestaurant(); // Call fetchData here
       window.scrollTo(0, 0);
   }, []);
-  
 
-    
-    const fetchData = async () => {
+    const fetchRestaurant = async () => {
+      
+
       try {
-        const response = await axios.get(`http://localhost:8080/api/restaurant/getOne/${rest_Id}`);
+        const response = await axios.get(`http://localhost:8080/api/restaurant/getOne/${id}`);
         setRestaurant(response.data);
-        console.log("Get rest list "+ restaurant.name);
+        console.log("Get rest list "+ restaurant);
 
       } catch (error) {
         console.error('Error fetching data:', error);
       }
     };
+
 
     const restaurant_list_item = restaurant_list.find(item => item.name === restaurant.name);
     const imgUrls = restaurant_list_item ? restaurant_list_item.restaurant_images : '';
@@ -108,7 +133,7 @@ const AddFoodItem = () => {
       
       // Show success message
       setSuccessMessage('Food item added successfully.');
-      setTimeout(() => setSuccessMessage(''), 2000); // Hide after 3 seconds
+      setTimeout(() => setSuccessMessage(''), 3000); // Hide after 3 seconds
 
       // Reset form fields
       setfoodformData({
@@ -125,8 +150,11 @@ const AddFoodItem = () => {
       console.error('Error adding food item:', error);
       // Show error message
       setErrorMessage('Error adding food item. Please try again.');
-      setTimeout(() => setErrorMessage(''), 2000); // Hide after 3 seconds
+      setTimeout(() => setErrorMessage(''), 3000); // Hide after 3 seconds
     }
+
+
+
      
 
     ////////////////////////////////////////////////////////////////////////
@@ -136,11 +164,11 @@ const AddFoodItem = () => {
   return (
     <div className='add-food-item-page'>
 
+
       <div className='food-item-form-container'>
       <div className='restaurant-header'>
           <h2>{restaurant.name}</h2>
       </div>
-      
       <h1 className='add-food-item-header'>Add Food Item</h1>
       
       { (
@@ -167,6 +195,26 @@ const AddFoodItem = () => {
      
         </form>
       )}
+      
+      {successMessage && <div className="REST-success-message">{successMessage}</div>}
+      {errorMessage && <div className="REST-error-message">{errorMessage}</div>}
+      <div className='rest-buttons'>
+      <Link to={`/order/${restId}`}>
+        <div className='show-orders'>
+          <button>Show Orders</button>
+        </div>
+      </Link>
+      <Link to={`/show-reservations/${restId}`}>
+        <div className='show-reservations'>
+          <button>Show Reservations</button>
+        </div>
+      </Link>
+
+      
+
+      </div>
+
+
 
       {showPopup && (
         <div className="popup">
@@ -182,8 +230,7 @@ const AddFoodItem = () => {
       <CategorizedDisplay menu_category={menu_category} restaurant_id={rest_Id} isVisible={isVisible} isResVisible={false}/>
 
 
-      {successMessage && <div className="success-message">{successMessage}</div>}
-      {errorMessage && <div className="error-message">{errorMessage}</div>}
+      
     </div>
   );
 }

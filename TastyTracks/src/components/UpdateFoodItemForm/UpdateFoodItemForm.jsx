@@ -3,10 +3,26 @@ import './UpdateFoodItemForm.css';
 import { useState } from "react";
 import axios from 'axios';
 import { assets } from '../../assets/assets/assets';
-
+import { useEffect } from 'react';
 
 
 const UpdateFoodItemForm = ({ onCancel ,item, rest_id}) => {
+
+
+  
+  const [restaurant, setRestaurant] = useState({});
+
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+
+  }, []);
+
+  useEffect(() => {
+    fetchData(); // Call fetchData here
+    window.scrollTo(0, 0);
+}, []);
+  
 
 
   const [foodFormData, setFoodFormData] = useState({
@@ -37,6 +53,18 @@ const UpdateFoodItemForm = ({ onCancel ,item, rest_id}) => {
       });
     }
   };
+
+  const fetchData = async () => {
+    try {
+      const response = await axios.get(`http://localhost:8080/api/restaurant/getOne/${rest_id}`);
+      setRestaurant(response.data);
+      console.log("Get rest list "+ restaurant.name);
+
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -78,8 +106,6 @@ const UpdateFoodItemForm = ({ onCancel ,item, rest_id}) => {
     <div className="popup">
       <p>Update Food Item Form</p>
       {(<form className="update-food-item-form">
-          <label htmlFor="item">Item Name:</label>
-          <input type="text" id="item" name="item" value={foodFormData.item} onChange={handleChange} required />
 
           <label htmlFor="price">Price:</label>
           <input type="text" id="price" name="price" value={foodFormData.price} onChange={handleChange} required />

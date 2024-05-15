@@ -1,30 +1,84 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './LoginRestOwner.css'; // Import CSS file
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 
 const LoginRestOwner = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
+  const [success_stat, setSuccess_stat] = useState(false);
+  
+  const [restId, setRestId] = useState(null);
+
+
+/*   useEffect(() => {
+    const fetchUserId = async () => {
+      let token = await localStorage.getItem('token');
+      console.log("tomom"+token)
+      if (token !== null) {
+        token = JSON.parse(token);
+        console.log("token--"+token)
+        try {
+          const response = await axios.get(`http://localhost:8080/api/restaurant/${token}`);
+          setRestId(response.data);
+          console.log("User ID:", response.data);
+        } catch (error) {
+          console.error('Error fetching user data:', error);
+        }
+      }
+    };
+
+    fetchUserId();
+  }, []);  */
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
       const response = await axios.post('http://localhost:8080/api/restaurant/login', { email, password });
-      console.log("response daa"+response.data);
-      console.log(response.data);
-      // Store the token in local storage
+      console.log("inside rest owner token:"+response.data);
       localStorage.setItem('token', JSON.stringify(response.data));
-      console.log(localStorage.getItem('token'));
-      /* const token = JSON.parse(localStorage.getItem("token"));
-      console.log("token:", token); */
-      // Optionally, you can store the user data as well
-      //localStorage.setItem('user', JSON.stringify(response.data.user));
+      
+      console.log("user"+localStorage.getItem('user'));
+      console.log("token"+localStorage.getItem('token'));
+      setSuccessMessage('Please wait');
+      setTimeout(() => setSuccessMessage(''), 2000);
     } catch (error) {
       setErrorMessage('Invalid email or password. Please try again.');
     }
+
+
+    let token = await localStorage.getItem('token');
+      console.log("tomom"+token)
+      if (token !== null) {
+        token = JSON.parse(token);
+        console.log("token--"+token)
+        try {
+          const response = await axios.get(`http://localhost:8080/api/restaurant/${token}`);
+          setRestId(response.data);
+          setSuccess_stat(true);
+          console.log("User ID:", response.data);
+        } catch (error) {
+          console.error('Error fetching user data:', error);
+        }
+
+      }
+
+
+
+
   };
+
+  useEffect(() => {
+    if (success_stat) {
+      navigate(`/add-food-item/${restId}`);
+    }
+  }, [success_stat, restId, navigate]);
 
   return (
     <div className="login-rest-owner">

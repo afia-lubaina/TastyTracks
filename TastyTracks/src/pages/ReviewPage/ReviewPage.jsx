@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import './ReviewPage.css';
 import FoodRating from '../../components/FoodRating/FoodRating';
@@ -6,115 +6,88 @@ import axios from 'axios';
 import { StoreContext } from '../../context/StoreContext';
 import ReviewContainer from '../../components/ReviewContainer/ReviewContainer';
 import LoginPopup from '../../components/LoginPopup/LoginPopup';
-import { useEffect } from 'react';
-
 
 const ReviewPage = () => {
   const { item, restId } = useParams();
-  const [reviewText, setReviewText] = useState('');
   const { ratings } = useContext(StoreContext);
-  const [userId,setUserId]=useState(null);
-  
-
-  console.log("item "+item);
-  console.log("restIdpppppppppp000000"+restId);
-
+  const [reviewText, setReviewText] = useState('');
+  const [userId, setUserId] = useState(null);
   const [errorMessage, setErrorMessage] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
-  /* console.log("item "+item);
-  console.log("restId "+restId); */
+  const [userType, setUserType] = useState(null);
 
-  
-
-
- /*  useEffect(() => {
-    if (token !== null) {
-      // Fetch userId from backend when token is not null
-      const fetchUserId = async () => {
+  useEffect(() => {
+    const fetchUserId = async () => {
+      window.scrollTo(0, 0);
+      let token = await localStorage.getItem('token');
+      let userType = await localStorage.getItem('user');
+      console.log("Inside Review Page User Type:", userType);
+      setUserType(userType);
+      if (token !== null) {
+        token = JSON.parse(token);
         try {
           const response = await axios.get(`http://localhost:8080/api/user/${token}`);
           setUserId(response.data);
-          console.log("response......data"+ response.data);
+          console.log("User ID:", response.data);
         } catch (error) {
           console.error('Error fetching user data:', error);
         }
-      };
+      }
+    };
 
-      fetchUserId();
-    }
-  }, [token]);  */
-  
+    fetchUserId();
+  }, []); // Empty dependency array ensures this effect runs only once on component mount
 
   const handleSubmitReview = async (e) => {
     e.preventDefault();
 
-    /* if(token === null){ */
+    if(userType !=='user'){
+        setErrorMessage('Please login to add a review.');
+        setTimeout(() => setErrorMessage(''), 3000); // Hide after 2 seconds
+        console.log("error message"+errorMessage)
+        return;
+    }
+    else{
 
     // Check if review text is empty
     if (reviewText.trim() === '') {
       setErrorMessage('Review text cannot be empty.');
-      setTimeout(() => setErrorMessage(''), 2000); // Hide after 2 seconds
+      setTimeout(() => setErrorMessage(''), 3000); // Hide after 2 seconds
       return;
     }
-    let token = await localStorage.getItem('token')
-    if(token != null) {
-      token = JSON.parse(token)
-    }
-    console.log("token "+token);
-
-
-      
-
-      try {
-        const response = await axios.get(`http://localhost:8080/api/user/${token}`);
-        setUserId(response.data)
-        console.log("response.data"+response.data)
-      } catch (error) {
-        console.error('Error fetching search results:', error);
-      }
-      //review_id, item, rating, rest_id, review, time, user_id
 
     try {
-
       const formData = {
         user_id: userId,
         restId: restId,
-        item: item, 
+        item: item,
         review: reviewText,
         rating: 3,
         time: new Date().toISOString()
-      };/* 
-      console.log("your rating is " + ratings)
-      console.log("your review is " + reviewText) */
+      };
 
-      console.log("Form Data:", formData);
-
-
-      
       const response = await axios.post('http://localhost:8080/api/review/save', formData, {
         headers: {
           'Content-Type': 'application/json',
         }
       });
 
-      console.log("your response is " + response)
-
-   
+      console.log("Response:", response);
       setSuccessMessage('Review added successfully.');
-      setTimeout(() => setSuccessMessage(''), 2000); 
+      setTimeout(() => setSuccessMessage(''), 3000); 
 
       // Reset review text
       setReviewText('');
     } catch (error) {
       console.error('Error adding review:', error);
       setErrorMessage('Error adding review. Please try again.');
-      setTimeout(() => setErrorMessage(''), 2000); // Hide after 2 seconds
+      setTimeout(() => setErrorMessage(''), 3000); // Hide after 2 seconds
     }
+  }
   };
 
   return (
     <div className='review-page'>
-      {/* {token === null && <LoginPopup setShowLogin={() => {}} />} */}
       <div className='review-img-write'>
         <img className="review-food-item-image" src={`http://localhost:8080/api/food/image/${item}/${restId}`} alt="" />
         <div className='write-review'>
@@ -130,13 +103,14 @@ const ReviewPage = () => {
               onChange={(e) => setReviewText(e.target.value)}
             />
             <button className='submit-review-button' onClick={handleSubmitReview}>Submit Review</button>
+       
+            {errorMessage && <div className="review-error-message">{errorMessage}</div>}
+            {successMessage && <div className="review-success-message">{successMessage}</div>}
           </div>
-          {/* Display word count */}
         </div>
       </div>
       <ReviewContainer item={item} restId={restId} />
-      {errorMessage && <div className="error-message">{errorMessage}</div>}
-      {successMessage && <div className="success-message">{successMessage}</div>}
+      
     </div>
   );
 };

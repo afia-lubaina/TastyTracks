@@ -3,12 +3,41 @@ import { useParams } from 'react-router-dom';
 import './CheckOutPage.css';
 import axios from 'axios';
 
+import { useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+
+import { StoreContext } from "../../context/StoreContext";
+
+
 const CheckOutPage = () => {
   const { item, restId, quantity } = useParams();
   console.log('item:', item);
   console.log('restId:', restId);
   console.log('quantity:', quantity);
   const [foodItem, setFoodItem] = useState(null);
+  const [userId, setUserId] = useState(null);
+  const navigate = useNavigate();
+ const { cartItems, addToCart, removeFromCart } = useContext(StoreContext);
+  
+
+
+  useEffect(() => {
+    const fetchUserId = async () => {
+      let token = await localStorage.getItem('token');
+      if (token !== null) {
+        token = JSON.parse(token);
+        try {
+          const response = await axios.get(`http://localhost:8080/api/user/${token}`);
+          setUserId(response.data);
+          console.log("User ID:", response.data);
+        } catch (error) {
+          console.error('Error fetching user data:', error);
+        }
+      }
+    };
+
+    fetchUserId();
+  }, []);
 
   useEffect(() => {
     axios.get(`http://localhost:8080/api/food/get/${item}/${restId}`)
@@ -41,11 +70,13 @@ const CheckOutPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+
+
   const formData = {
     
     foodItem: item,
     restId: parseInt(restId),
-    userId: 1,
+    userId: userId,
     deliveryTime: formattedDeliveryTime,
     paymentStatus: "Pending"
   }
@@ -59,6 +90,8 @@ const CheckOutPage = () => {
       }
     });
     console.log("Response data ", response.data);
+    removeFromCart(parseInt(restId), item);
+    navigate('/');
   } catch (error) {
     console.error('Error saving order:', error);
   }
@@ -69,6 +102,7 @@ const CheckOutPage = () => {
   
   return (
     <div className='checkout'>
+      <h1>Confirm your Order</h1>
       <div className='checkout-items'>
         <img src={`http://localhost:8080/api/food/image/${item}/${restId}`} alt={foodItem.item} /> 
         <div className='order-grid-items'>
@@ -103,7 +137,9 @@ const CheckOutPage = () => {
           <div className='order-grid-item'>
             <p className='item-caption'>Delivery Status:</p>
             <p>Pending.</p>
-            <button type="submit" onClick={handleSubmit}>Confirm Order</button>
+            <div className='order-grid-item-button'>
+            <button type="submit" onClick={handleSubmit} >Confirm Order</button>
+            </div>
           </div>
           <div>
            

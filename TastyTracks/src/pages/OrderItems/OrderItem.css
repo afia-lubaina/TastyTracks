@@ -1,17 +1,9 @@
-.checkout{
+.order{
     margin: 0 auto;
     width: 80%;
 }
 
-.checkout h1{
-    margin-top: 20px;
-    font-size: 3rem;
-    color: rgb(225, 74, 99);
-    text-align: center;
-    font-family: Outfit;
-}
-
-.checkout-items {
+.order-items {
     margin-top: 3rem;
     justify-content: space-between;
     border: 1px solid #ccc;
@@ -34,24 +26,24 @@
 }
 
   
-.checkout-items img {
+.order-items img {
     width: 70rem; /* Adjust size as needed */
     height: 50rem;
     margin-right: 100px;
 }
   
-.checkout-items div {
+.order-items div {
     flex: 1
 }
   
-.checkout-items p {
+.order-items p {
     margin: 15px 0; /* Increased spacing between lines */
     font-size: 2.5rem;
     font-family: Outfit;
 }
 
 /* Bold caption */
-.checkout-items p.item-caption {
+.order-items p.item-caption {
     font-weight: bold;
 }
   
@@ -63,7 +55,7 @@
     height: 200px; /* Adjust as needed */
 }
 
-.order-grid-item-button button{
+.order-grid-item button{
     padding: 10px 20px;
     font-size: 1.2rem;
     background-color: rgb(225, 74, 99);
@@ -74,6 +66,11 @@
 }
 
 
-.order-grid-item-button button:hover{
-background-color: rgb(206, 195, 197);
-}
+/* private long reservationId;
+private long userId;
+private long restId;
+private String email;
+private Date date;
+private String time;
+private int no_of_people;
+private String name; */

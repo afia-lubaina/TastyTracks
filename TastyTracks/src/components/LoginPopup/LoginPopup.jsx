@@ -74,12 +74,16 @@ const LoginPopup = ({ setShowLogin }) => {
             setStep('login_as_restaurant_owner')
             setShowLogin(false);
             navigate('/login-rest-owner');
-            
         }
-        else {
+        else if(option == 'user'){
             setShowLogin(false);
             setStep('login_as_user')
             navigate('/login-user');
+        }
+        else{
+            setShowLogin(false);
+            setStep('login_as_admin')
+            navigate('/login-admin');
         }
         set_theuser(option); // Move to login/sign up as user or restaurant owner step
         console.log("option "+option);
@@ -96,12 +100,19 @@ const LoginPopup = ({ setShowLogin }) => {
         }
         else if(option==='user'){
             setStep('signup_as_user'); // Move to signup step
+            setShowLogin(false);
             navigate('/signup-user');
             console.log("inside"); // Move to login/sign up as user or restaurant owner step
             console.log("option "+option);
             console.log("step "+step);
             set_theuser(option);
         } 
+        else if(option==='admin'){
+            setStep('signup_as_admin'); // Move to signup step
+            setShowLogin(false);
+            navigate('/signup-admin');
+            set_theuser(option);
+        }
         console.log("option "+option);
     };/* 
 
@@ -131,6 +142,7 @@ const LoginPopup = ({ setShowLogin }) => {
                     </div>
                     <button onClick={() => handleLoginOption('user')}>Login as User</button>
                     <button onClick={() => handleLoginOption('restaurant_owner')}>Login as Restaurant Owner</button>
+                    <button onClick={() => handleLoginOption('admin')}>Login as Admin</button>
                 </div>
             )}
             {(step === 'signup') && (
@@ -143,6 +155,7 @@ const LoginPopup = ({ setShowLogin }) => {
                     </div>
                     <button onClick={() => handleSignupOption('user')}>SignUp as User</button>
                     <button onClick={() => handleSignupOption('restaurant_owner')}>SignUp as Restaurant Owner</button>
+                    <button onClick={() => handleSignupOption('admin')}>SignUp as Admin</button>
                 </div>
             )}
             {(step==='login_as_user') && (

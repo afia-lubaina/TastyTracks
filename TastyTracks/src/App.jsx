@@ -18,6 +18,11 @@ import CheckOutPage from './pages/CheckOutPage/CheckOutPage'
 import LoginUser from './pages/LoginUser/LoginUser'
 import LoginRestOwner from './components/LoginRestOwner/LoginRestOwner'
 import SignUpUser from './pages/SignUpUser/SignUpUser'
+import OrderItem from './pages/OrderItems/OrderItem'
+import ShowReservations from './pages/ShowReservations/ShowReservations'
+import SignUpAdmin from './pages/SignUpAdmin/SignUpAdmin'
+import LoginAdmin from './pages/LoginAdmin/LoginAdmin'
+import AdminPage from './pages/AdminPages/AdminPage'
 
 
 
@@ -43,6 +48,12 @@ const App = () => {
         <Route path='/login-user' element={<LoginUser/>} />
         <Route path='login-rest-owner' element={<LoginRestOwner/>} />
         <Route path='signup-user' element={<SignUpUser/>} />
+        <Route path='order/:restId' element={<OrderItem/>} />
+        <Route path='show-reservations/:restId' element={<ShowReservations/>} />
+        <Route path='signup-admin' element={<SignUpAdmin/>} />
+        <Route path='login-admin' element={<LoginAdmin/>} />
+        <Route path='admin-page' element={<AdminPage/>} />
+
       </Routes>
     </div>
     <Footer/>
