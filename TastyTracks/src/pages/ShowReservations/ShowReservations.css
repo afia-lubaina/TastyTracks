@@ -71,3 +71,10 @@
     font-family: Outfit;
     text-align: center;
 }
+
+.reservation-header{
+    margin-top: 20px;
+    font-size: 3rem;
+    color: rgb(225, 74, 99);
+    text-align: center;
+}

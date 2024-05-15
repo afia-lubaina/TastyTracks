@@ -8,12 +8,17 @@ import CategorizedDisplay from '../../components/CategorizedDisplay/CategorizedD
 import ReservationForm from '../../components/ReservationForm/ReservationForm';
 import axios from 'axios';
 import { Link, useParams } from 'react-router-dom';
+import { useContext } from "react";
+
+import { StoreContext } from "../../context/StoreContext";
 
 
 const AddFoodItem = () => {
 
   
   const [menu_category,set_category]=useState("All");
+  
+  const { userType } = useContext(StoreContext); 
   const [foodformData, setfoodformData] = useState({
     rest_name: '',
     price: '',
@@ -28,7 +33,7 @@ const AddFoodItem = () => {
   const [errorMessage, setErrorMessage] = useState('');
   const [isVisible, setIsVisible] = useState(true);
   const [restaurant, setRestaurant] = useState({});
-  const [userType, setUserType] = useState(null);
+/*   const [userType, setUserType] = useState(null);
 
   useEffect(() => {
     const fetchUserId = async () => {
@@ -49,7 +54,7 @@ const AddFoodItem = () => {
     };
 
     fetchUserId();
-  }, []); 
+  }, []);  */
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;

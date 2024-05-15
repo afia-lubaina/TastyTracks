@@ -1,26 +1,37 @@
 .popup {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    z-index: 1000; /* Ensure the popup is above other elements */
+  position: fixed;
+    z-index: 2001;
+    top: 0;
+    left: 0;
+    background-color: #00000090;
+    display: grid; /* Ensure the popup is above other elements */
   }
   
   .popup p {
     margin: 0;
     margin-bottom: 10px;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
+    font-family: Outfit;
+    text-align: center;
     font-weight: bold;
+    margin-top: 3rem;
+
   }
   
   .update-food-item-form {
+    place-self: center;
+    width: 40rem;
+    min-height: 20rem;
+    color: #464242;
+    background-color: white;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 25px;
+    padding: 3rem;
+    border-radius: 8px;
+    animation: fadeIn 0.5s;
+    font-family: Outfit;
+    font-size: 1.5rem;
   }
   
   .update-food-item-form label {
@@ -41,10 +52,12 @@
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    
+    background-color: rgb(225, 74, 99);
   }
   
   .update-food-item-form button[type="submit"]:hover {
-    background-color: #0056b3;
+    background-color: rgb(218, 160, 170);
   }
   
   .popup img {

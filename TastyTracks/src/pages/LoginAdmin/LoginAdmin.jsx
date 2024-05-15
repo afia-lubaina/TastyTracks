@@ -21,7 +21,7 @@ const LoginAdmin = () => {
       console.log(localStorage.getItem('token'));
       console.log(localStorage.getItem('user'));
 
-     // window.location.href = '/admin-page';
+      window.location.href = '/admin-page';
     } catch (error) {
       // Handle login error
       setErrorMessage('Invalid email or password. Please try again.');

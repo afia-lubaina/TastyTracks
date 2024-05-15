@@ -14,13 +14,11 @@ const UpdateFoodItemForm = ({ onCancel ,item, rest_id}) => {
 
 
   useEffect(() => {
-    window.scrollTo(0, 0);
 
   }, []);
 
   useEffect(() => {
     fetchData(); // Call fetchData here
-    window.scrollTo(0, 0);
 }, []);
   
 

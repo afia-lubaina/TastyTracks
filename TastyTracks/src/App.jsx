@@ -23,6 +23,9 @@ import ShowReservations from './pages/ShowReservations/ShowReservations'
 import SignUpAdmin from './pages/SignUpAdmin/SignUpAdmin'
 import LoginAdmin from './pages/LoginAdmin/LoginAdmin'
 import AdminPage from './pages/AdminPages/AdminPage'
+import Users from './pages/Users/Users'
+import ShowRestaurants from './pages/ShowRestaurants/ShowRestaurants'
+import ShowOrders from './pages/ShowOrders/ShowOrders'
 
 
 
@@ -53,6 +56,9 @@ const App = () => {
         <Route path='signup-admin' element={<SignUpAdmin/>} />
         <Route path='login-admin' element={<LoginAdmin/>} />
         <Route path='admin-page' element={<AdminPage/>} />
+        <Route path='/users' element={<Users/>} />
+        <Route path='/restaurant-owners' element={ShowRestaurants} />
+        <Route path='/orders' element={<ShowOrders/>} />
 
       </Routes>
     </div>

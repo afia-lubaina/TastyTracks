@@ -146,8 +146,8 @@ const AddRestaurantItem = () => {
       </form>
 
 
-      {successMessage && <div className="success-message">{successMessage}</div>}
-      {errorMessage && <div className="error-message">{errorMessage}</div>}
+      {successMessage && <div className="addrest-success-message">{successMessage}</div>}
+      {errorMessage && <div className="addrest-error-message">{errorMessage}</div>}
     </div>
   );
 }

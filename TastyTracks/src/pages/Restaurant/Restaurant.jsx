@@ -13,8 +13,6 @@ import axios from 'axios';
 const Restaurant = () => {
     const { restaurant_id } = useParams();
     const [restaurant, setRestaurant] = useState({});
-    
-  
 
     useEffect(() => {
       window.scrollTo(0, 0);

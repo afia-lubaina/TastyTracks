@@ -32,6 +32,9 @@ const ShowReservations = () => {
   },[restId]);
   return (
     <div>
+      <div className='reservation-header'>
+      <h2>Reservations</h2>
+      </div>
       {reservationList.length > 0 ? (
         reservationList.map((reservation, index) => (
           <div className='reservation' key={index}>
