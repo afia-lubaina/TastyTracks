@@ -114,5 +114,6 @@
 .review{
     text-decoration: underline;
     cursor: pointer;
+    font-size: 1.5rem;
 }
 

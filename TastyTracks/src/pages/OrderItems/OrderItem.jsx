@@ -37,6 +37,16 @@ const OrderItem = () => {
   },[restId]);
 
 
+  const handleStatusUpdate = (event) => {
+    // Change the button text to "Completed"
+    event.target.innerText = 'Completed';
+    // Disable the button after click
+    event.target.disabled = true;
+  };
+
+  
+
+
     return (
         <div>
         {orderList.length > 0 ? (
@@ -58,10 +68,16 @@ const OrderItem = () => {
                     <p className='item-caption'>Delivery Time:</p>
                     <p>{order.deliveryTime}</p>
                   </div>
+                    
                     <div className='order-grid-item'>
-                        <p className='item-caption'>Payment Status:</p>
-                        <p>{order.paymentStatus}</p>
+                        <p className='item-caption'>Address:</p>
+                        <p>house no 37,road no 11, garrison, dhaka cantonment.</p>
                     </div>
+                    <div className="order-grid-item">
+                    <p className='item-caption'>Payment Status:</p>
+                     <button onClick={handleStatusUpdate}>Pending</button>
+                     </div>
+
                 </div>
               </div>
             </div>

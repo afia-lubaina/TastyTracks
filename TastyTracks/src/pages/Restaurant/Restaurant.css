@@ -4,17 +4,16 @@
 
 }
 
-.restaurant-header{
+.restaurant-header h2{
   font-size: 5rem;
   text-align: center;
   font-weight: 600;
-  background-image: url('/font_back.jpg');
-  color: transparent;
+  color: black;
   font-family: Outfit;
   background-clip: text;
   -webkit-background-clip: text;
   margin-top: 7rem;
-  margin-bottom: 2rem;
+  margin-bottom: 7rem;
   animation: fadeIn 1s;
   }
 

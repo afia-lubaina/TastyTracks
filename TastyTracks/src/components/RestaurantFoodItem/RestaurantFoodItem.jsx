@@ -124,9 +124,11 @@ const RestaurantFoodItem = ({ rest_id, item, category, description, img_url, pri
         <p className="restaurant-food-item-price">Tk. {price}</p>
       </div>
       {!isVisible &&(
+        <div className="review-container">
         <Link to={`/api/review/get/${item}/${rest_id}`}>
         <p className="review">review</p>
         </Link>
+        </div>
       )
       }
       {isVisible && (

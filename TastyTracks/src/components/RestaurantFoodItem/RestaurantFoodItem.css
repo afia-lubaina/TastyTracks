@@ -150,3 +150,8 @@
 .delete-button:hover{
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.4)
 }
+
+.review-container{
+    margin-left: 2rem;
+    margin-top: -1.5rem;
+}
